@@ -1,0 +1,207 @@
+@font-face {
+  font-family: "Romagna";
+  src: url("../fonts/Romagna/Webfonts/WOFF/Romagna-Regular.woff");
+  font-weight: regular;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Romagna";
+  src: url("../fonts/Romagna/Webfonts/WOFF/Romagna-Bold.woff");
+  font-weight: bold;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Romagna", sans-serif;
+  font-weight: 400;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+section {
+  padding: 16rem 2rem;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
+a,
+button {
+  background: none;
+  border: none;
+  font-size: 2.4rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+a:hover,
+button:hover {
+  opacity: 0.75;
+}
+
+p {
+  font-size: 2.4rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  translate: -50% 0;
+  width: 100vw;
+  max-width: 1920px;
+  padding: 2rem;
+  z-index: 3;
+}
+header .logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 12rem;
+  height: 32px;
+  flex-shrink: 0;
+}
+header .logo-wrapper svg {
+  width: 100%;
+}
+header .header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(46, 48, 48, 0.8039215686);
+  backdrop-filter: blur(4px);
+  width: clamp(524px, 50%, 1220px);
+  padding: 1.6rem 2.4rem;
+  border-radius: 4rem;
+}
+header .header-nav a {
+  color: white;
+  transition: 0s;
+}
+@media screen and (max-width: 768px) {
+  header .header-nav {
+    background: black;
+    position: absolute;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    height: 100dvh;
+    width: calc(100vw + 1px);
+    border-radius: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 12px;
+    translate: 0 0;
+    transition: 0.3s ease translate;
+  }
+  header .header-nav a {
+    font-size: 4rem;
+  }
+  header .header-nav.active {
+    translate: calc(-100% + 1px) 0;
+    transition: 0.3s ease translate;
+  }
+}
+header .login-btn {
+  background-color: black;
+  color: white;
+  padding: 1.6rem 3.6rem;
+  border-radius: 4rem;
+}
+@media screen and (max-width: 768px) {
+  header .login-btn {
+    display: none;
+  }
+}
+header .burger {
+  position: relative;
+  display: block;
+  width: 32px;
+  height: 32px;
+  z-index: 1;
+}
+@media screen and (min-width: 769px) {
+  header .burger {
+    display: none;
+  }
+}
+header .burger-line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 100%;
+  height: 4px;
+  border-radius: 2rem;
+  background: black;
+  transition: 0.2s ease;
+}
+header .burger-line:nth-of-type(1) {
+  translate: -50% -274%;
+}
+header .burger-line:nth-of-type(3) {
+  translate: -50% 174%;
+}
+header .burger.active .burger-line {
+  background: white;
+}
+header .burger.active .burger-line:nth-of-type(1) {
+  rotate: 45deg;
+  translate: -50% -50%;
+}
+header .burger.active .burger-line:nth-of-type(2) {
+  width: 0;
+}
+header .burger.active .burger-line:nth-of-type(3) {
+  rotate: -45deg;
+  translate: -50% -50%;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero-headline {
+  font-size: min(6rem + 6vw, 196px);
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+  width: clamp(564px, 92%, 1440px);
+}
+.hero-img {
+  width: clamp(12px, 64%, 1440px);
+  translate: 0 -64px;
+}
+@media screen and (max-width: 768px) {
+  .hero-img {
+    translate: 0 0;
+  }
+}
+.hero-cta {
+  background: black;
+  color: white;
+  padding: 2rem 4rem;
+  border-radius: 1rem;
+}
+.hero .gradient-glyph {
+  position: absolute;
+  top: 148px;
+  width: calc(120px + 16vw);
+  height: clamp(456px, 54vw, 1220px);
+  border-radius: 6px;
+  z-index: -1;
+  background: radial-gradient(560px at 0% 40%, #5AF1BB, rgba(90, 241, 188, 0.1450980392)), radial-gradient(560px at 100% 60%, #5199FF, rgba(81, 154, 255, 0.1450980392)), #F0F1F1;
+  background-blend-mode: normal, normal, normal;
+}/*# sourceMappingURL=styles.css.map */
