@@ -9,6 +9,8 @@ $button-radius: 1rem;
 
 $base-font-size: 2.4rem;
 
+$cubic-ease: 2s cubic-bezier(.53,-0.2,.52,1.2);
+
 
 $test: 2px dashed cornflowerblue;
 
@@ -24,12 +26,23 @@ $test: 2px dashed cornflowerblue;
 
 html {
     font-size: 62.5%;
+
+    @include mq-max('xl') {
+        font-size: 56%;
+    }
+
+    @include mq-max('md') {
+        font-size: 44%;
+    }
 }
 
 section {
+    // border: $test;
     padding: 16rem $body-padding;
-    // border: 2px dashed black;
 
+    @include mq-max('sm') {
+        padding: 14rem $body-padding;
+    }
 }
 
 img {
@@ -44,11 +57,11 @@ button {
     font-size: $base-font-size;
     text-decoration: none;
     cursor: pointer;
-    transition: 0.2s ease;
+    // transition: 0.2s ease;
 
-    &:hover {
-        opacity: 0.75;
-    }
+    // &:hover {
+    //     opacity: 0.75;
+    // }
 }
 
 p {
@@ -92,8 +105,21 @@ header {
 
         a {
             color: white;
-            transition: 0s;
+            transition: font-size 0s;
         }
+
+        // .login-mobile {
+        //     display: none;
+
+        //     @include mq-max('md') {
+        //         display: block;
+        //         background-color: white;
+        //         color: black;
+        //         padding: $button-padding;
+        //         border-radius: $button-radius;
+        //         margin-top: 24px;
+        //     }
+        // }
 
         @include mq-max('md') {
             background: black;
@@ -154,8 +180,7 @@ header {
             height: 4px;
             border-radius: 2rem;
             background: black;
-            // background: black;
-            transition: 0.2s ease;
+            transition: rotate 0.4s ease;
             
             &:nth-of-type(1) {
                 translate: -50% calc(-50% - 224%);
@@ -188,46 +213,142 @@ header {
 
 .hero {
     @include column-center;
+    background-color: #F0F1F1;
 
     &-headline {
         // border: $test;
-        font-size: min(calc(6rem + 6vw), 196px);
+        font-size: min(calc(5.2rem + 5.2vw), 196px);
         font-weight: 600;
         text-transform: uppercase;
         text-align: center;
-        width: clamp(564px, 92%, 1440px);
+        width: clamp(280px, 100%, 1440px);
+        z-index: 1;
+
+        @include mq-max('sm') {
+            font-size: 6.4rem;
+        }
     }
     
     &-img {
         // border: $test;
+        position: relative;
         width: clamp(12px, 64%, 1440px);
         translate: 0 -64px;
+        z-index: 1;
+
+        @include mq-max('xl') {
+            translate: 0 -32px;
+        }
 
         @include mq-max('md') {
             translate: 0 0;
+            width: 100%;
         }
+
+        svg,
+        figcaption {
+            position: absolute;
+            top: 8%;
+            right: -2vw;
+
+            @include mq-max('md') {
+                top: 0;
+                right: 0;
+            }
+        }
+
+        svg {
+            // border: $test;
+            translate: -32% 64px;
+            width: 16%;
+            height: auto;
+        }
+
+        figcaption {
+            font-family: "Athelas", serif;
+            font-style: italic;
+            font-size: min(1.4vw, $base-font-size);
+            text-align: center;
+
+            @include mq-max('xl') {
+                font-size: 1.8rem;
+                translate: 40% 0;
+            }
+            
+            @include mq-max('md') {
+                font-size: 1.8rem;
+                translate: 0 0;
+            }
+
+            .emoji {
+                text-align: end;
+                display: block;
+                font-size: min(2.8vw, 4rem);
+                rotate: -4deg;
+                translate: 16% -32%;
+
+                @include mq-max('xl') {
+                    font-size: 3.2rem;
+                }
+                @include mq-max('md') {
+                    translate: 0 0;
+                }
+            }
+        }
+
     }
     
     &-cta {
         background: black;
         color: white;
+        font-size: 3.6rem;
         padding: $button-padding;
         border-radius: $button-radius;
+        z-index: 1;
     }
 
     .gradient-glyph {
         position: absolute;
         top: 148px;
         width: calc(120px + 16vw);
-        // height: 1024px;
-        // height: 92%;
-        height: clamp(456px, 54vw, 1220px);
+        height: clamp(500px, 54vw, 1220px);
         border-radius: 6px;
-        z-index: -1;
         background: 
         radial-gradient(560px at 0% 40%, #5AF1BB, #5af1bc25),
         radial-gradient(560px at 100% 60%, #5199FF, #519aff25),
         #F0F1F1;
         background-blend-mode: normal, normal, normal;
+
+        @include mq-max('md') {
+            height: clamp(456px, 80vw, 1220px);
+            top: 96px;
+        }
+        
+        @include mq-max('sm') {
+            height: clamp(340px, 80vw, 1220px);
+        }
+    }
+}
+
+.offer {
+    position: relative;
+
+    .brands {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        translate: -50% -40%;
+        background-color: black;
+        width: 86%;
+        height: 264px;
+        border-radius: 3.2rem;
+    }
+
+    &-details {
+
+        h2 {
+            font-size: 8rem;
+            font-weight: bold;
+        }
     }
 }
