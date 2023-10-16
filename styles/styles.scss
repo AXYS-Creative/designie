@@ -1,6 +1,12 @@
 @import './mixins',
 './fonts';
 
+
+$whitesmoke: #F0F1F1;
+$aquamarine: #5AF1BB;
+$dodgerblue: #5199FF;
+
+
 $width-constraint: 1920px;
 $body-padding: 2rem;
 
@@ -9,7 +15,7 @@ $button-radius: 1rem;
 
 $base-font-size: 2.4rem;
 
-$cubic-ease: 2s cubic-bezier(.53,-0.2,.52,1.2);
+$cubic-ease: cubic-bezier(.19,1.1,.75,1.27);
 
 
 $test: 2px dashed cornflowerblue;
@@ -38,10 +44,11 @@ html {
 
 section {
     // border: $test;
-    padding: 16rem $body-padding;
+    // padding: 16rem $body-padding;
+    padding: 8rem $body-padding 20rem;
 
     @include mq-max('sm') {
-        padding: 14rem $body-padding;
+        padding: 6rem $body-padding;
     }
 }
 
@@ -73,10 +80,11 @@ p {
 header {
     @include row-between;
     gap: 12px;
-    position: fixed;
-    top: 0;
-    left: 50%;
-    translate: -50% 0;
+    background-color: $whitesmoke; // if only the nav is fixed
+    // position: fixed;
+    // top: 0;
+    // left: 50%;
+    // translate: -50% 0;
     width: 100vw;
     max-width: $width-constraint;
     padding: $body-padding;
@@ -95,6 +103,14 @@ header {
     }
 
     .header-nav {
+        
+        // Just fixing the nav
+        position: fixed;
+        top: $body-padding;
+        left: 50%;
+        translate: -50% 0;
+        // Just fixing the nav
+
         @include row-between;
         // background: #58595bcd;
         background: #2e3030cd;
@@ -102,10 +118,19 @@ header {
         width: clamp(524px, 50%, 1220px);
         padding: 1.6rem 2.4rem;
         border-radius: 4rem;
+        z-index: 3;
 
         a {
             color: white;
             transition: font-size 0s;
+
+            @include mq-max('md') {
+                font-size: 4rem;
+            }
+
+            @include mq-max('md') {
+                font-size: 6rem;
+            }
         }
 
         // .login-mobile {
@@ -123,8 +148,10 @@ header {
 
         @include mq-max('md') {
             background: black;
-            position: absolute;
+            // position: absolute;
+            position: fixed;
             top: 0;
+            left: auto;
             right: -100%;
             height: 100vh;
             height: 100dvh;
@@ -136,10 +163,6 @@ header {
             gap: 12px;
             translate: 0 0;
             transition: 0.3s ease translate;
-
-            a {
-                font-size: 4rem;
-            }
             
             &.active {
                 translate: calc(-100% + 1px) 0;
@@ -165,11 +188,15 @@ header {
             display: none;
         }
 
-        position: relative;
+        // position: relative;
+        position: fixed;
+        top: $body-padding;
+        right: $body-padding;
+
         display: block;
         width: 32px;
         height: 32px;
-        z-index: 1;
+        z-index: 5;
 
         &-line {
             position: absolute;
@@ -180,7 +207,7 @@ header {
             height: 4px;
             border-radius: 2rem;
             background: black;
-            transition: rotate 0.4s ease;
+            transition: 0.3s $cubic-ease, background 0.25s 0.2s;
             
             &:nth-of-type(1) {
                 translate: -50% calc(-50% - 224%);
@@ -194,6 +221,7 @@ header {
             
             .burger-line {
                 background: white;
+                transition: 0.3s $cubic-ease, background 0s;
 
                 &:nth-of-type(1) {
                     rotate: 45deg;
@@ -213,7 +241,7 @@ header {
 
 .hero {
     @include column-center;
-    background-color: #F0F1F1;
+    background-color: $whitesmoke;
 
     &-headline {
         // border: $test;
@@ -279,6 +307,10 @@ header {
                 font-size: 1.8rem;
                 translate: 0 0;
             }
+            
+            @include mq-max('sm') {
+                scale: 0.8;
+            }
 
             .emoji {
                 text-align: end;
@@ -293,6 +325,39 @@ header {
                 @include mq-max('md') {
                     translate: 0 0;
                 }
+                @include mq-max('sm') {
+                    rotate: 2deg;
+                    translate: 20% -60%;
+                }
+            }
+        }
+
+        p {
+            // border: $test;
+            position: absolute;
+            z-index: 2;
+            bottom: 12%;
+            left: -12%;
+            font-size: min(calc(1.2rem + 1.2vw), 4rem);
+
+            @include mq-max('xl') {
+                left: -24%;
+            }
+            
+            @include mq-max('md') {
+                left: 0;
+                line-height: 100%;
+            }
+
+            .emoji {
+                display: inline-block;
+                translate: 12px 12px;
+                transform: scale(1.5);
+
+                @include mq-max('md') {
+                    translate: 2px 2px;
+                    transform: scale(1.2);
+                }
             }
         }
 
@@ -305,19 +370,22 @@ header {
         padding: $button-padding;
         border-radius: $button-radius;
         z-index: 1;
+
+        @include mq-max('md') {
+            margin-top: 6rem;
+        }
     }
 
     .gradient-glyph {
+        background-image: url('../assets/hero-gradient.webp');
+        background-size: cover;
+        background-position: 50% 50%;
         position: absolute;
         top: 148px;
-        width: calc(120px + 16vw);
+        width: calc(64px + 18vw);
         height: clamp(500px, 54vw, 1220px);
         border-radius: 6px;
-        background: 
-        radial-gradient(560px at 0% 40%, #5AF1BB, #5af1bc25),
-        radial-gradient(560px at 100% 60%, #5199FF, #519aff25),
-        #F0F1F1;
-        background-blend-mode: normal, normal, normal;
+        overflow: hidden;
 
         @include mq-max('md') {
             height: clamp(456px, 80vw, 1220px);
@@ -332,15 +400,16 @@ header {
 
 .offer {
     position: relative;
+    padding: 24rem $body-padding 0;
 
     .brands {
         position: absolute;
         top: 0;
         left: 50%;
-        translate: -50% -40%;
+        translate: -50% -36%;
         background-color: black;
         width: 86%;
-        height: 264px;
+        height: 320px;
         border-radius: 3.2rem;
     }
 
