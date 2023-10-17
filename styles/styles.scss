@@ -87,8 +87,20 @@ header {
     // translate: -50% 0;
     width: 100vw;
     max-width: $width-constraint;
+    margin: auto;
     padding: $body-padding;
     z-index: 3;
+    
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 12rem;
+        background: $whitesmoke;
+        z-index: -1;
+    }
 
     .logo-wrapper {
         // border: 1px dashed coral;

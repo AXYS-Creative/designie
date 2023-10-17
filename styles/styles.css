@@ -67,8 +67,19 @@ header {
   background-color: #F0F1F1;
   width: 100vw;
   max-width: 1920px;
+  margin: auto;
   padding: 2rem;
   z-index: 3;
+}
+header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 12rem;
+  background: #F0F1F1;
+  z-index: -1;
 }
 header .logo-wrapper {
   display: flex;
