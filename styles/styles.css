@@ -33,11 +33,11 @@ html {
 }
 
 section {
-  padding: 8rem 2rem 20rem;
+  padding: 8rem 4rem 20rem;
 }
 @media screen and (max-width: 480px) {
   section {
-    padding: 6rem 2rem;
+    padding: 6rem 4rem;
   }
 }
 
@@ -59,7 +59,7 @@ p {
   font-size: 2.4rem;
 }
 
-header {
+.site-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -68,20 +68,20 @@ header {
   width: 100vw;
   max-width: 1920px;
   margin: auto;
-  padding: 2rem;
+  padding: 4rem;
   z-index: 3;
 }
-header::after {
+.site-header::after {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
-  height: 12rem;
+  height: 100%;
   background: #F0F1F1;
   z-index: -1;
 }
-header .logo-wrapper {
+.site-header .logo-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -89,12 +89,12 @@ header .logo-wrapper {
   height: 32px;
   flex-shrink: 0;
 }
-header .logo-wrapper svg {
+.site-header .logo-wrapper svg {
   width: 100%;
 }
-header .header-nav {
+.site-header .header-nav {
   position: fixed;
-  top: 2rem;
+  top: 4rem;
   left: 50%;
   translate: -50% 0;
   display: flex;
@@ -102,27 +102,27 @@ header .header-nav {
   align-items: center;
   background: rgba(46, 48, 48, 0.8039215686);
   backdrop-filter: blur(4px);
-  width: clamp(524px, 50%, 1220px);
+  width: clamp(480px, 50%, 1220px);
   padding: 1.6rem 2.4rem;
   border-radius: 4rem;
   z-index: 3;
 }
-header .header-nav a {
+.site-header .header-nav a {
   color: white;
   transition: font-size 0s;
 }
 @media screen and (max-width: 768px) {
-  header .header-nav a {
+  .site-header .header-nav a {
     font-size: 4rem;
   }
 }
 @media screen and (max-width: 768px) {
-  header .header-nav a {
+  .site-header .header-nav a {
     font-size: 6rem;
   }
 }
 @media screen and (max-width: 768px) {
-  header .header-nav {
+  .site-header .header-nav {
     background: black;
     position: fixed;
     top: 0;
@@ -139,37 +139,37 @@ header .header-nav a {
     translate: 0 0;
     transition: 0.3s ease translate;
   }
-  header .header-nav.active {
+  .site-header .header-nav.active {
     translate: calc(-100% + 1px) 0;
     transition: 0.3s ease translate;
   }
 }
-header .login-btn {
+.site-header .login-btn {
   background-color: black;
   color: white;
   padding: 1.6rem 3.6rem;
   border-radius: 4rem;
 }
 @media screen and (max-width: 768px) {
-  header .login-btn {
+  .site-header .login-btn {
     display: none;
   }
 }
-header .burger {
+.site-header .burger {
   position: fixed;
-  top: 2rem;
-  right: 2rem;
+  top: 4rem;
+  right: 4rem;
   display: block;
   width: 32px;
   height: 32px;
   z-index: 5;
 }
 @media screen and (min-width: 769px) {
-  header .burger {
+  .site-header .burger {
     display: none;
   }
 }
-header .burger-line {
+.site-header .burger-line {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -180,24 +180,24 @@ header .burger-line {
   background: black;
   transition: 0.3s cubic-bezier(0.19, 1.1, 0.75, 1.27), background 0.25s 0.2s;
 }
-header .burger-line:nth-of-type(1) {
+.site-header .burger-line:nth-of-type(1) {
   translate: -50% -274%;
 }
-header .burger-line:nth-of-type(3) {
+.site-header .burger-line:nth-of-type(3) {
   translate: -50% 174%;
 }
-header .burger.active .burger-line {
+.site-header .burger.active .burger-line {
   background: white;
   transition: 0.3s cubic-bezier(0.19, 1.1, 0.75, 1.27), background 0s;
 }
-header .burger.active .burger-line:nth-of-type(1) {
+.site-header .burger.active .burger-line:nth-of-type(1) {
   rotate: 45deg;
   translate: -50% -50%;
 }
-header .burger.active .burger-line:nth-of-type(2) {
+.site-header .burger.active .burger-line:nth-of-type(2) {
   width: 0;
 }
-header .burger.active .burger-line:nth-of-type(3) {
+.site-header .burger.active .burger-line:nth-of-type(3) {
   rotate: -45deg;
   translate: -50% -50%;
 }
@@ -369,7 +369,7 @@ header .burger.active .burger-line:nth-of-type(3) {
 
 .offer {
   position: relative;
-  padding: 24rem 2rem 0;
+  padding: 24rem 4rem 0;
 }
 .offer .brands {
   position: absolute;
@@ -377,11 +377,53 @@ header .burger.active .burger-line:nth-of-type(3) {
   left: 50%;
   translate: -50% -36%;
   background-color: black;
-  width: 86%;
-  height: 320px;
+  width: clamp(120px, 100% - 8rem, 1920px);
+  height: clamp(120px, 10rem + 10vw, 280px);
   border-radius: 3.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6rem 4vw;
 }
-.offer-details h2 {
-  font-size: 8rem;
+@media screen and (max-width: 768px) {
+  .offer .brands {
+    padding: 5.2rem 2.8vw;
+  }
+}
+.offer .brands img {
+  width: min(12vw, 24rem);
+}
+@media screen and (max-width: 768px) {
+  .offer .brands img {
+    width: 14vw;
+  }
+}
+.offer .brands img:nth-of-type(odd) {
+  align-self: flex-start;
+}
+.offer .brands img:nth-of-type(even) {
+  align-self: flex-end;
+}
+.offer-details {
+  margin: auto;
+  max-width: 1920px;
+}
+.offer-details-header h2 {
+  font-size: min(6vw, 12rem);
   font-weight: bold;
+}
+.offer-details-header p {
+  font-size: min(1.2rem + 1.2vw, 4rem);
+}
+.offer-details-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(2rem, 4vw, 4rem) 0;
+}
+.offer-details-info .offer-block {
+  text-align: center;
+}
+.offer-details-info .offer-block img {
+  width: 24vw;
 }/*# sourceMappingURL=styles.css.map */

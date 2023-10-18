@@ -8,12 +8,13 @@ $dodgerblue: #5199FF;
 
 
 $width-constraint: 1920px;
-$body-padding: 2rem;
+$body-padding: 4rem;
 
 $button-padding: 2rem 4rem;
 $button-radius: 1rem;
 
 $base-font-size: 2.4rem;
+$dynamic-base-font-size: min(calc(1.2rem + 1.2vw), 4rem);
 
 $cubic-ease: cubic-bezier(.19,1.1,.75,1.27);
 
@@ -77,7 +78,7 @@ p {
 
 // Site Content
 
-header {
+.site-header {
     @include row-between;
     gap: 12px;
     background-color: $whitesmoke; // if only the nav is fixed
@@ -97,7 +98,7 @@ header {
         top: 0;
         left: 0;
         width: 100vw;
-        height: 12rem;
+        height: 100%;
         background: $whitesmoke;
         z-index: -1;
     }
@@ -115,19 +116,18 @@ header {
     }
 
     .header-nav {
-        
-        // Just fixing the nav
+        // Position:fixing ONLY the nav
         position: fixed;
         top: $body-padding;
         left: 50%;
         translate: -50% 0;
-        // Just fixing the nav
+        // Position:fixing ONLY the nav
 
         @include row-between;
         // background: #58595bcd;
         background: #2e3030cd;
         backdrop-filter: blur(4px);
-        width: clamp(524px, 50%, 1220px);
+        width: clamp(480px, 50%, 1220px);
         padding: 1.6rem 2.4rem;
         border-radius: 4rem;
         z-index: 3;
@@ -345,12 +345,11 @@ header {
         }
 
         p {
-            // border: $test;
             position: absolute;
             z-index: 2;
             bottom: 12%;
             left: -12%;
-            font-size: min(calc(1.2rem + 1.2vw), 4rem);
+            font-size: $dynamic-base-font-size;
 
             @include mq-max('xl') {
                 left: -24%;
@@ -420,16 +419,65 @@ header {
         left: 50%;
         translate: -50% -36%;
         background-color: black;
-        width: 86%;
-        height: 320px;
+        width: clamp(120px, calc(100% - calc($body-padding * 2)), $width-constraint);
+        height: clamp(120px, calc(10rem + 10vw), 280px);
         border-radius: 3.2rem;
+        @include row-between;
+        // padding: 6rem 12rem;
+        padding: 6rem 4vw;
+
+        @include mq-max('md') {
+            padding: 5.2rem 2.8vw;
+        }
+
+        
+
+        img {
+            width: min(calc(12vw), 24rem);
+
+            @include mq-max('md') {
+                width: 14vw;
+            }
+
+            &:nth-of-type(odd) {
+                align-self: flex-start;
+            }
+            &:nth-of-type(even) {
+                align-self: flex-end;
+            }
+        }
     }
 
     &-details {
+        margin: auto;
+        max-width: $width-constraint;
 
-        h2 {
-            font-size: 8rem;
-            font-weight: bold;
+        &-header {
+
+            h2 {
+                font-size: min(6vw, 12rem);
+                font-weight: bold;
+            }
+
+            p {
+                font-size: $dynamic-base-font-size;
+            }
         }
+
+        &-info {
+            @include row-between;
+            padding: clamp(2rem, 4vw, 4rem) 0;
+
+            .offer-block {
+                // border: $test;
+                text-align: center;
+
+                img {
+                    width: 24vw;
+                    // height: 24rem;
+                }
+            }
+        }
+
     }
 }
