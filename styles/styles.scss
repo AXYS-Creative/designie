@@ -6,15 +6,13 @@ $whitesmoke: #F0F1F1;
 $aquamarine: #5AF1BB;
 $dodgerblue: #5199FF;
 
-
 $width-constraint: 1920px;
 $content-constraint: 1024px;
 
 $body-padding: 4rem;
-$body-padding-small: $body-padding / 2;
+$body-padding-small: calc($body-padding / 2);
 
 $button-padding: 2rem 4rem;
-// $button-radius: 1rem;
 $button-radius: min(calc(0.4rem + 0.4vw), 1.6rem);
 
 $base-font-size: 2.4rem;
@@ -22,7 +20,6 @@ $dynamic-sub-header-font-size: clamp(2.6rem, calc(0.2rem + 1.8vw), 4rem);
 $dynamic-base-font-size: clamp(2.2rem, calc(0.2rem + 1.6vw), 3.2rem);
 $dynamic-small-font-size: clamp(14px, calc(1.2rem + 1.2vw), 2.8rem);
 
-// $section-radius: 2vw;
 $section-radius: min(calc(1rem + 1vw), 2.4rem);
 
 $cubic-ease: cubic-bezier(.19,1.1,.75,1.27);
@@ -55,7 +52,7 @@ section {
     padding: $body-padding-small $body-padding 16rem;
 
     @include mq-max('md') {
-        padding: 2rem calc($body-padding / 2);
+        padding: 2rem $body-padding-small;
     }
 }
 
@@ -279,12 +276,10 @@ p {
     background: $whitesmoke;
 
     &-headline {
-        // border: $test;
-        font-size: clamp(0px, calc(2.4rem + 4.6vw), 120px);
+        font-size: clamp(8rem, calc(2.4rem + 4.6vw), 120px);
         font-weight: 600;
         text-transform: uppercase;
         text-align: center;
-        // width: clamp(320px, 68%, 1220px);
         z-index: 1;
 
         @include mq-max('xl') {
@@ -309,7 +304,7 @@ p {
 
         @include mq-max('md') {
             translate: 0 0;
-            width: 100%;
+            width: 80%;
         }
 
         svg,

@@ -43,8 +43,7 @@ section {
 
 img {
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 a,
@@ -114,9 +113,8 @@ p {
   justify-content: space-between;
   align-items: center;
   background: rgba(46, 48, 48, 0.8039215686);
-  -webkit-backdrop-filter: blur(4px);
-          backdrop-filter: blur(4px);
-  width: clamp(480px, 50%, 1220px);
+  backdrop-filter: blur(4px);
+  width: clamp(480px, 56%, 1024px);
   padding: 1.6rem 2.4rem;
   border-radius: 4rem;
   z-index: 3;
@@ -229,7 +227,7 @@ p {
   background: #F0F1F1;
 }
 .hero-headline {
-  font-size: clamp(0px, 2.4rem + 4.6vw, 120px);
+  font-size: clamp(8rem, 2.4rem + 4.6vw, 120px);
   font-weight: 600;
   text-transform: uppercase;
   text-align: center;
@@ -258,7 +256,7 @@ p {
 @media screen and (max-width: 768px) {
   .hero-img {
     translate: 0 0;
-    width: 100%;
+    width: 80%;
   }
 }
 .hero-img svg,
