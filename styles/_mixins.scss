@@ -3,7 +3,8 @@ $max-breakpoints: (
   'sm': 480px,
   'md': 768px,
   'lg': 1024px,
-  'xl': 1200px
+  'xl': 1200px,
+  'xxl': 1440px
 );
 
 @mixin mq-max($breakpoint) {
@@ -22,7 +23,8 @@ $min-breakpoints: (
   'sm': 481px,
   'md': 769px,
   'lg': 1025px,
-  'xl': 1201px
+  'xl': 1201px,
+  'xxl': 1441px
 );
 
 @mixin mq-min($breakpoint) {

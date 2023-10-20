@@ -8,7 +8,10 @@ $dodgerblue: #5199FF;
 
 
 $width-constraint: 1920px;
+$content-constraint: 1024px;
+
 $body-padding: 4rem;
+$body-padding-small: $body-padding / 2;
 
 $button-padding: 2rem 4rem;
 // $button-radius: 1rem;
@@ -16,8 +19,8 @@ $button-radius: min(calc(0.4rem + 0.4vw), 1.6rem);
 
 $base-font-size: 2.4rem;
 $dynamic-sub-header-font-size: clamp(2.6rem, calc(0.2rem + 1.8vw), 4rem);
-$dynamic-base-font-size: clamp(1.8rem, calc(0.2rem + 1.6vw), 3.2rem);
-$dynamic-small-font-size: min(calc(1.2rem + 1.2vw), 2.8rem);
+$dynamic-base-font-size: clamp(2.2rem, calc(0.2rem + 1.6vw), 3.2rem);
+$dynamic-small-font-size: clamp(14px, calc(1.2rem + 1.2vw), 2.8rem);
 
 // $section-radius: 2vw;
 $section-radius: min(calc(1rem + 1vw), 2.4rem);
@@ -49,12 +52,7 @@ html {
 }
 
 section {
-    // border: $test;
-    padding: 2rem $body-padding 16rem;
-
-    @include mq-max('xl') {
-        padding: 4rem $body-padding 16rem;
-    }
+    padding: $body-padding-small $body-padding 16rem;
 
     @include mq-max('md') {
         padding: 2rem calc($body-padding / 2);
@@ -98,8 +96,12 @@ p {
     width: 100vw;
     max-width: $width-constraint;
     margin: auto;
-    padding: $body-padding;
+    padding: $body-padding-small $body-padding;
     z-index: 3;
+
+    @include mq-max('xxl') {
+        padding: $body-padding-small;
+    }
 
     @include mq-max('sm') {
         padding: $body-padding calc($body-padding / 2);
@@ -118,21 +120,23 @@ p {
     }
 
     .logo-wrapper {
-        // border: 1px dashed coral;
+        // border: $test;
         @include row-center;
         width: 12rem;
+        // width: 100%;
         height: 32px;
         flex-shrink: 0;
 
         svg {
             width: 100%;
+            height: 100%;
         }
     }
 
     .header-nav {
         // Position:fixing ONLY the nav
         position: fixed;
-        top: $body-padding;
+        top: $body-padding-small;
         left: 50%;
         translate: -50% 0;
         // Position:fixing ONLY the nav
@@ -141,18 +145,19 @@ p {
         // background: #58595bcd;
         background: #2e3030cd;
         backdrop-filter: blur(4px);
-        width: clamp(480px, 50%, 1220px);
+        width: clamp(480px, 56%, 1024px);
         padding: 1.6rem 2.4rem;
         border-radius: 4rem;
         z-index: 3;
 
-        a {
+        @include mq-max('xxl') {
+            top: $body-padding-small;
+        }
+
+
+        &-links {
             color: white;
             transition: font-size 0s;
-
-            @include mq-max('md') {
-                font-size: 4rem;
-            }
 
             @include mq-max('md') {
                 font-size: 6rem;
@@ -195,7 +200,6 @@ p {
                 transition: 0.3s ease translate;
             }
         }
-
     }
 
     .login-btn {
@@ -210,10 +214,10 @@ p {
     }
 
     .burger {
-        // position: relative;
+        // border: $test;
         position: fixed;
-        top: $body-padding;
-        right: $body-padding;
+        top: $body-padding-small;
+        right: $body-padding-small;
         
         display: block;
         width: 32px;
@@ -225,8 +229,8 @@ p {
         }
 
         @include mq-max('sm') {
-            padding: 0 calc($body-padding / 2);
-            right: $body-padding / 2;
+            top: $body-padding;
+            translate: 0 -4px;
         }
 
         &-line {
@@ -276,27 +280,31 @@ p {
 
     &-headline {
         // border: $test;
-        font-size: min(calc(5.2rem + 5.2vw), 196px);
+        font-size: clamp(0px, calc(2.4rem + 4.6vw), 120px);
         font-weight: 600;
         text-transform: uppercase;
         text-align: center;
-        width: clamp(280px, 100%, 1440px);
+        // width: clamp(320px, 68%, 1220px);
         z-index: 1;
 
+        @include mq-max('xl') {
+            translate: 0 12px;
+        }
+
         @include mq-max('sm') {
-            font-size: 6.4rem;
+            font-size: 12vw;
         }
     }
     
     &-img {
         // border: $test;
         position: relative;
-        width: clamp(12px, 64%, 1440px);
-        translate: 0 -64px;
-        z-index: 1;
+        // width: clamp(0px, 64%, 1440px);
+        width: clamp(0px, 40%, 820px);
+        translate: 0 -20px;
 
         @include mq-max('xl') {
-            translate: 0 -32px;
+            translate: 0 0;
         }
 
         @include mq-max('md') {
@@ -391,35 +399,41 @@ p {
             }
         }
 
+        .gradient-glyph {
+            background-image: url('../assets/hero-gradient.webp');
+            background-size: cover;
+            background-position: 50% 50%;
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            translate: -50% 0;
+            width: clamp(136px, 16vw, 28rem);
+            height: clamp(12px, calc(1rem + 34vw), 720px);
+            border-radius: 6px;
+            overflow: hidden;
+            z-index: -1;
+            
+            @include mq-max('xl') {
+                translate: -50% -20px;
+            }
+
+            @include mq-max('md') {
+                width: clamp(136px, 24vw, 28rem);
+                height: clamp(312px, calc(12rem + 52vw), 720px);
+            }
+        }
     }
     
     &-cta {
         background: black;
         color: white;
-        font-size: 3.6rem;
+        font-size: $dynamic-base-font-size;
         padding: $button-padding;
         border-radius: $button-radius;
         z-index: 1;
 
         @include mq-max('md') {
             margin: 6rem 0 10rem;
-        }
-    }
-
-    .gradient-glyph {
-        background-image: url('../assets/hero-gradient.webp');
-        background-size: cover;
-        background-position: 50% 50%;
-        position: absolute;
-        top: 148px;
-        width: clamp(0px, calc(64px + 18vw), 48rem);
-        height: clamp(500px, 54vw, 1220px);
-        border-radius: 6px;
-        overflow: hidden;
-
-        @include mq-max('md') {
-            height: clamp(324px, 80vw, 1220px);
-            top: 96px;
         }
     }
 }
