@@ -12,13 +12,13 @@ $content-constraint: 1024px;
 $body-padding: 4rem;
 $body-padding-small: calc($body-padding / 2);
 
-$button-padding: 2rem 4rem;
-$button-radius: min(calc(0.4rem + 0.4vw), 1.6rem);
+$button-padding: calc(1.6rem + 0.4vw) calc(2rem + 0.8vw);
+$button-radius: min(calc(0.6rem + 0.4vw), 1.2rem);
 
 $base-font-size: 2.4rem;
 $dynamic-sub-header-font-size: clamp(2.6rem, calc(0.2rem + 1.8vw), 4rem);
-$dynamic-base-font-size: clamp(2.2rem, calc(0.2rem + 1.6vw), 3.2rem);
-$dynamic-small-font-size: clamp(14px, calc(1.2rem + 1.2vw), 2.8rem);
+$dynamic-base-font-size: clamp(18px, calc(0.2rem + 1.6vw), 3.2rem);
+$dynamic-small-font-size: clamp(16px, calc(0.8rem + 1.2vw), 2.8rem);
 
 $section-radius: min(calc(1rem + 1vw), 2.4rem);
 
@@ -142,8 +142,8 @@ p {
         // background: #58595bcd;
         background: #2e3030cd;
         backdrop-filter: blur(4px);
-        width: clamp(480px, 56%, 1024px);
-        padding: 1.6rem 2.4rem;
+        width: clamp(480px, 50%, 1024px);
+        padding: 1.4rem 2.4rem;
         border-radius: 4rem;
         z-index: 3;
 
@@ -202,7 +202,7 @@ p {
     .login-btn {
         background: black;
         color: white;
-        padding: 1.6rem 3.6rem;
+        padding: 1.4rem 3.8rem;
         border-radius: 4rem;
 
         @include mq-max('md') {
@@ -235,7 +235,7 @@ p {
             top: 50%;
             left: 50%;
             translate: -50% -50%;
-            width: 100%;
+            width: 92%;
             height: 4px;
             border-radius: 2rem;
             background: black;
@@ -274,9 +274,10 @@ p {
 .hero {
     @include column-center;
     background: $whitesmoke;
+    padding-top: 4rem;
 
     &-headline {
-        font-size: clamp(8rem, calc(2.4rem + 4.6vw), 120px);
+        font-size: clamp(8rem, calc(2.4rem + 4.2vw), 120px);
         font-weight: 600;
         text-transform: uppercase;
         text-align: center;
@@ -286,25 +287,32 @@ p {
             translate: 0 12px;
         }
 
+        @include mq-max('md') {
+            font-size: clamp(8rem, calc(6rem + 4.6vw), 120px);
+        }
+
         @include mq-max('sm') {
-            font-size: 12vw;
+            font-size: 13.2vw;
         }
     }
     
     &-img {
         // border: $test;
         position: relative;
-        // width: clamp(0px, 64%, 1440px);
-        width: clamp(0px, 40%, 820px);
-        translate: 0 -20px;
+        width: clamp(520px, 40%, 820px);
+        translate: 0 -32px;
 
         @include mq-max('xl') {
+            translate: 0 -24px;
+        }
+        
+        @include mq-max('md') {
+            width: 80%;
             translate: 0 0;
         }
 
-        @include mq-max('md') {
-            translate: 0 0;
-            width: 80%;
+        @include mq-max('sm') {
+            width: 100%;
         }
 
         svg,
@@ -319,30 +327,38 @@ p {
             }
         }
 
-        svg {
+        .curved-arrow {
             // border: $test;
-            translate: -32% 64px;
+            translate: -48% 48px;
             width: 16%;
             height: auto;
+
+            @include mq-max('md') {
+                translate: 0 64px;
+            }
+
+            @include mq-max('sm') {
+                translate: -24% 44px;
+                scale: 0.8;
+            }
         }
 
         figcaption {
             font-family: "Athelas", serif;
             font-style: italic;
-            font-size: min(1.4vw, $base-font-size);
+            font-size: clamp(12px, 3.2vw, 16px);
             text-align: center;
 
             @include mq-max('xl') {
-                font-size: 1.8rem;
-                translate: 40% 0;
+                translate: 12% 12%;
             }
-            
+
             @include mq-max('md') {
-                font-size: 1.8rem;
-                translate: 0 0;
+                translate: 50% 25%;
             }
             
             @include mq-max('sm') {
+                translate: 14% 25%;
                 scale: 0.8;
             }
 
@@ -350,11 +366,12 @@ p {
                 text-align: end;
                 display: block;
                 font-size: min(2.8vw, 4rem);
-                rotate: -4deg;
-                translate: 16% -32%;
-
+                rotate: -6deg;
+                translate: 25% -25%;
+                
                 @include mq-max('xl') {
-                    font-size: 3.2rem;
+                    font-size: 3.6rem;
+                    translate: 20% -20%;
                 }
                 @include mq-max('md') {
                     translate: 0 0;
@@ -370,16 +387,30 @@ p {
             position: absolute;
             z-index: 2;
             bottom: 12%;
-            left: -12%;
+            left: -24%;
             font-size: $dynamic-small-font-size;
 
+            @include mq-max('xxl') {
+                bottom: 4%;
+                left: -36%;
+            }
+
             @include mq-max('xl') {
-                left: -24%;
+                // border: $test;
+                bottom: 4%;
+                left: -16%;
             }
             
             @include mq-max('md') {
-                left: 0;
+                bottom: 12%;
+                left: -8%;
                 line-height: 100%;
+            }
+            
+            @include mq-max('sm') {
+                font-size: 12px;
+                bottom: 10%;
+                left: 0;
             }
 
             .emoji {
@@ -402,14 +433,16 @@ p {
             bottom: 20%;
             left: 50%;
             translate: -50% 0;
-            width: clamp(136px, 16vw, 28rem);
-            height: clamp(12px, calc(1rem + 34vw), 720px);
+            width: clamp(136px, calc(8rem + 8vw), 28rem);
+            height: clamp(470px, 33vw, 720px);
             border-radius: 6px;
             overflow: hidden;
             z-index: -1;
             
             @include mq-max('xl') {
-                translate: -50% -20px;
+                // border: $test;
+                translate: -50% -12px;
+                height: clamp(440px, 33vw, 720px);
             }
 
             @include mq-max('md') {
