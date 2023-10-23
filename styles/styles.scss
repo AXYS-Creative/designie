@@ -7,20 +7,16 @@ $aquamarine: #5AF1BB;
 $dodgerblue: #5199FF;
 
 $width-constraint: 1920px;
-$content-constraint: 1024px;
+$content-constraint: 1440px;
 
 $body-padding: 4rem;
 $body-padding-small: calc($body-padding / 2);
 
-$button-padding: calc(1.6rem + 0.4vw) calc(2rem + 0.8vw);
-$button-radius: min(calc(0.6rem + 0.4vw), 1.2rem);
+$button-square-padding: 2rem;
+$button-square-radius: 1rem;
+$button-circle-padding: 1.4rem 3.8rem;
+$button-circle-radius: 4rem;
 
-$base-font-size: 2.4rem;
-$dynamic-sub-header-font-size: clamp(2.6rem, calc(0.2rem + 1.8vw), 4rem);
-$dynamic-base-font-size: clamp(18px, calc(0.2rem + 1.6vw), 3.2rem);
-$dynamic-small-font-size: clamp(16px, calc(0.8rem + 1.2vw), 2.8rem);
-
-$section-radius: min(calc(1rem + 1vw), 2.4rem);
 
 $cubic-ease: cubic-bezier(.19,1.1,.75,1.27);
 
@@ -38,17 +34,22 @@ $test: 2px dashed cornflowerblue;
 
 html {
     font-size: 62.5%;
-
-    @include mq-max('xl') {
-        font-size: 56%;
+    
+    @include mq-max('xxl') {
+        font-size: 54%;
     }
 
+    @include mq-max('xl') {
+        font-size: 48%;
+    }
+    
     @include mq-max('md') {
-        font-size: 44%;
+        font-size: 32%;
     }
 }
 
 section {
+    background-color: white;
     padding: $body-padding-small $body-padding 16rem;
 
     @include mq-max('md') {
@@ -65,23 +66,16 @@ a,
 button {
     background: none;
     border: none;
-    font-size: $base-font-size;
     text-decoration: none;
     cursor: pointer;
-    // transition: 0.2s ease;
-
-    // &:hover {
-    //     opacity: 0.75;
-    // }
 }
 
-p {
-    font-size: $base-font-size;
-}
-
+//
 // Site Content
+//
 
 .site-header {
+
     @include row-between;
     gap: 12px;
     // background-color: $whitesmoke; // if only the nav is fixed
@@ -96,12 +90,12 @@ p {
     padding: $body-padding-small $body-padding;
     z-index: 3;
 
-    @include mq-max('xxl') {
+    @include mq-max('md') {
         padding: $body-padding-small;
     }
-
+    
     @include mq-max('sm') {
-        padding: $body-padding calc($body-padding / 2);
+        padding: $body-padding $body-padding-small;
     }
     
     &::after {
@@ -117,10 +111,8 @@ p {
     }
 
     .logo-wrapper {
-        // border: $test;
         @include row-center;
-        width: 12rem;
-        // width: 100%;
+        width: max(92px, 12rem);
         height: 32px;
         flex-shrink: 0;
 
@@ -139,12 +131,11 @@ p {
         // Position:fixing ONLY the nav
 
         @include row-between;
-        // background: #58595bcd;
         background: #2e3030cd;
         backdrop-filter: blur(4px);
-        width: clamp(480px, 50%, 1024px);
-        padding: 1.4rem 2.4rem;
-        border-radius: 4rem;
+        width: clamp(480px, 50%, 840px);
+        border-radius: $button-circle-radius;
+        padding: $button-circle-padding;
         z-index: 3;
 
         @include mq-max('xxl') {
@@ -153,11 +144,11 @@ p {
 
 
         &-links {
+            font-size: 2.4rem;
             color: white;
-            transition: font-size 0s;
 
             @include mq-max('md') {
-                font-size: 6rem;
+                font-size: 8rem;
             }
         }
 
@@ -168,8 +159,6 @@ p {
         //         display: block;
         //         background: white;
         //         color: black;
-        //         padding: $button-padding;
-        //         border-radius: $button-radius;
         //         margin-top: 24px;
         //     }
         // }
@@ -181,9 +170,9 @@ p {
             top: 0;
             left: auto;
             right: -100%;
+            width: 100vw;
             height: 100vh;
             height: 100dvh;
-            width: calc(100vw + 1px);
             border-radius: 0;
             flex-direction: column;
             align-items: flex-start;
@@ -193,79 +182,80 @@ p {
             transition: 0.3s ease translate;
             
             &.active {
-                translate: calc(-100% + 1px) 0;
+                translate: -100% 0;
                 transition: 0.3s ease translate;
             }
         }
     }
 
     .login-btn {
+        font-size: 2.4rem;
+        padding: $button-circle-padding;
+        border-radius: $button-circle-radius;
         background: black;
         color: white;
-        padding: 1.4rem 3.8rem;
-        border-radius: 4rem;
 
         @include mq-max('md') {
             display: none;
         }
     }
+}
 
-    .burger {
-        // border: $test;
-        position: fixed;
-        top: $body-padding-small;
-        right: $body-padding-small;
+.burger {
+    position: fixed;
+    top: $body-padding-small;
+    right: $body-padding-small;
+    background-color: black;
+    mix-blend-mode: difference;
+    
+    display: block;
+    width: 32px;
+    height: 32px;
+    z-index: 5;
+
+    @include mq-min('md') {
+        display: none;
+    }
+
+    @include mq-max('sm') {
+        top: $body-padding;
+        translate: 0 -4px;
+    }
+
+    &-line {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        width: 92%;
+        height: 4px;
+        border-radius: 2rem;
+        background: white;
+        transition: 0.3s $cubic-ease;
         
-        display: block;
-        width: 32px;
-        height: 32px;
-        z-index: 5;
-
-        @include mq-min('md') {
-            display: none;
+        &:nth-of-type(1) {
+            translate: -50% calc(-50% - 224%);
         }
-
-        @include mq-max('sm') {
-            top: $body-padding;
-            translate: 0 -4px;
+        &:nth-of-type(3) {
+            translate: -50% calc(-50% + 224%);
         }
+    }
 
-        &-line {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            translate: -50% -50%;
-            width: 92%;
-            height: 4px;
-            border-radius: 2rem;
-            background: black;
-            transition: 0.3s $cubic-ease, background 0.25s 0.2s;
-            
+    &.active {
+        
+        .burger-line {
+            transition: 0.3s $cubic-ease;
+
             &:nth-of-type(1) {
-                translate: -50% calc(-50% - 224%);
+                rotate: 45deg;
+                translate: -50% -50%;
+            }
+            &:nth-of-type(2) {
+                width: 0;
             }
             &:nth-of-type(3) {
-                translate: -50% calc(-50% + 224%);
-            }
-        }
-
-        &.active {
-            
-            .burger-line {
-                background: white;
-                transition: 0.3s $cubic-ease, background 0s;
-
-                &:nth-of-type(1) {
-                    rotate: 45deg;
-                    translate: -50% -50%;
-                }
-                &:nth-of-type(2) {
-                    width: 0;
-                }
-                &:nth-of-type(3) {
-                    rotate: -45deg;
-                    translate: -50% -50%;
-                }
+                rotate: -45deg;
+                translate: -50% -50%;
             }
         }
     }
@@ -277,27 +267,14 @@ p {
     padding-top: 4rem;
 
     &-headline {
-        font-size: clamp(8rem, calc(2.4rem + 4.2vw), 120px);
+        font-size: 10rem;
         font-weight: 600;
         text-transform: uppercase;
         text-align: center;
         z-index: 1;
-
-        @include mq-max('xl') {
-            translate: 0 12px;
-        }
-
-        @include mq-max('md') {
-            font-size: clamp(8rem, calc(6rem + 4.6vw), 120px);
-        }
-
-        @include mq-max('sm') {
-            font-size: 13.2vw;
-        }
     }
     
     &-img {
-        // border: $test;
         position: relative;
         width: clamp(520px, 40%, 820px);
         translate: 0 -32px;
@@ -308,11 +285,11 @@ p {
         
         @include mq-max('md') {
             width: 80%;
-            translate: 0 0;
         }
-
+        
         @include mq-max('sm') {
             width: 100%;
+            translate: 0 0;
         }
 
         svg,
@@ -332,29 +309,26 @@ p {
             translate: -48% 48px;
             width: 16%;
             height: auto;
-
+            
             @include mq-max('md') {
-                translate: 0 64px;
+                translate: -24% 64px;
             }
 
             @include mq-max('sm') {
-                translate: -24% 44px;
+                translate: -40% 44px;
                 scale: 0.8;
             }
         }
 
         figcaption {
+            font-size: max(14px, 2rem);
             font-family: "Athelas", serif;
             font-style: italic;
-            font-size: clamp(12px, 3.2vw, 16px);
             text-align: center;
-
-            @include mq-max('xl') {
-                translate: 12% 12%;
-            }
-
+            translate: 12% 0;
+            
             @include mq-max('md') {
-                translate: 50% 25%;
+                translate: 25% 50%;
             }
             
             @include mq-max('sm') {
@@ -365,51 +339,32 @@ p {
             .emoji {
                 text-align: end;
                 display: block;
-                font-size: min(2.8vw, 4rem);
                 rotate: -6deg;
-                translate: 25% -25%;
-                
-                @include mq-max('xl') {
-                    font-size: 3.6rem;
-                    translate: 20% -20%;
-                }
-                @include mq-max('md') {
-                    translate: 0 0;
-                }
+                translate: -24% 0;
+                scale: 2;
+
                 @include mq-max('sm') {
-                    rotate: 2deg;
-                    translate: 20% -60%;
+                    scale: 1.4;
+                    rotate: -2deg;
+                    translate: -8% -50%;
                 }
             }
         }
 
         p {
+            font-size: max(16px, 2.4rem);
             position: absolute;
             z-index: 2;
-            bottom: 12%;
-            left: -24%;
-            font-size: $dynamic-small-font-size;
-
-            @include mq-max('xxl') {
-                bottom: 4%;
-                left: -36%;
-            }
-
-            @include mq-max('xl') {
-                // border: $test;
-                bottom: 4%;
-                left: -16%;
-            }
+            bottom: 8%;
+            left: -16%;
             
             @include mq-max('md') {
-                bottom: 12%;
-                left: -8%;
                 line-height: 100%;
+                left: -8%;
             }
             
             @include mq-max('sm') {
                 font-size: 12px;
-                bottom: 10%;
                 left: 0;
             }
 
@@ -433,31 +388,28 @@ p {
             bottom: 20%;
             left: 50%;
             translate: -50% 0;
-            width: clamp(136px, calc(8rem + 8vw), 28rem);
-            height: clamp(470px, 33vw, 720px);
+            width: 24rem;
+            height: clamp(460px, calc(16rem + 24vw), 680px);
             border-radius: 6px;
             overflow: hidden;
             z-index: -1;
             
-            @include mq-max('xl') {
-                // border: $test;
-                translate: -50% -12px;
-                height: clamp(440px, 33vw, 720px);
-            }
-
             @include mq-max('md') {
-                width: clamp(136px, 24vw, 28rem);
-                height: clamp(312px, calc(12rem + 52vw), 720px);
+                translate: -50% -12px;
+                height: clamp(312px, calc(8rem + 52vw), 680px);
+            }
+            @include mq-max('sm') {
+                width: 16rem;
             }
         }
     }
     
     &-cta {
+        font-size: max(20px, 3.2rem);
+        border-radius: $button-square-radius;
+        padding: $button-square-padding;
         background: black;
         color: white;
-        font-size: $dynamic-base-font-size;
-        padding: $button-padding;
-        border-radius: $button-radius;
         z-index: 1;
 
         @include mq-max('md') {
@@ -467,38 +419,35 @@ p {
 }
 
 .offer {
+    // border: $test;
     position: relative;
-    padding: 24rem $body-padding 12rem;
-    
-    @include mq-max('md') {
-        padding: 16rem $body-padding 0;
-    }
+    padding: 24rem $body-padding;
 
     @include mq-max('sm') {
-        padding: 12rem $body-padding 0;
+        padding: 12rem $body-padding;
     }
 
-
     .island {
+        @include row-between;
         position: absolute;
         top: 0;
         left: 50%;
         translate: -50% -36%;
         background: black;
-        width: clamp(120px, calc(100% - calc($body-padding * 2)), $width-constraint);
-        height: clamp(120px, calc(10rem + 10vw), 280px);
-        border-radius: $section-radius;
-        @include row-between;
-        padding: 6rem 4vw;
+        border-radius: 2rem;
+        width: clamp(0px, calc(100% - $body-padding * 2), $content-constraint);
+        height: 24rem;
+        padding: 5.2rem 8rem;
 
         @include mq-max('md') {
-            padding: 5.2rem 2.8vw;
+            translate: -50% -24%;
         }
-
+        
         @include mq-max('sm') {
+            translate: -50% -36%;
             width: calc(100% - $body-padding);
-            height: calc(8rem + 8vw);
-            padding: 3.2rem 2.8vw;
+            height: 12rem;
+            padding: 3.2rem 2rem;
         }
 
         * {
@@ -506,10 +455,14 @@ p {
         }
 
         img {
-            width: min(calc(12vw), 24rem);
+            width: 16rem;
 
             @include mq-max('md') {
-                width: 14vw;
+                width: 12rem;
+            }
+
+            @include mq-max('sm') {
+                width: 6rem;
             }
 
             &:nth-of-type(odd) {
@@ -519,39 +472,58 @@ p {
                 align-self: flex-end;
             }
         }
+
+        p {
+            font-size: max(16px, 3.6rem);
+            width: 84rem;
+            margin: auto;
+            text-align: center;
+            
+            @include mq-max('md') {
+                width: 90rem;
+            }
+            
+            @include mq-max('sm') {
+                font-size: 16px;
+                width: 100%;
+            }
+        }
     }
 
     &-details {
         margin: auto;
-        max-width: $width-constraint;
+        max-width: $content-constraint;
 
         &-header {
-            margin-bottom: min(4vw, 12rem);
-
+            margin-bottom: 8rem;
+            
             @include mq-max('md') {
                 text-align: center;
+                margin-bottom: 4rem;
             }
 
             h2 {
-                font-size: min(6vw, 12rem);
+                font-size: 8rem;
                 font-weight: bold;
                 margin-bottom: 1rem;
 
                 @include mq-max('md') {
-                    font-size: 8vw;
                     line-height: 120%;
                     margin-bottom: 1rem;
+                }
+
+                @include mq-max('sm') {
+                    font-size: 6.4rem;
                 }
             }
 
             p {
-                font-size: $dynamic-sub-header-font-size;
+                font-size: max(20px, 2.8rem);
             }
         }
 
         &-info {
             @include row-between;
-            padding: clamp(2rem, 4vw, 4rem) 0;
 
             @include mq-max('md') {
                 flex-direction: column;
@@ -562,7 +534,6 @@ p {
                 text-align: center;
 
                 img {
-                    width: min(24vw, 56rem);
 
                     @include mq-max('md') {
                         width: 48vw;
@@ -570,7 +541,7 @@ p {
                 }
 
                 p {
-                    font-size: $dynamic-base-font-size;
+                    font-size: max(16px, 2.8rem);
                     line-height: 140%;
                 }
 
@@ -587,6 +558,16 @@ p {
             }
         }
 
+    }
+}
+
+.offer-cards {
+
+    .island {
+
+        @include mq-max('sm') {
+            padding: 1.6rem;
+        }
     }
 }
 
