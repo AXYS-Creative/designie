@@ -6,8 +6,8 @@ $whitesmoke: #F0F1F1;
 $aquamarine: #5AF1BB;
 $dodgerblue: #5199FF;
 
-$width-constraint: 1920px;
-$content-constraint: 1440px;
+$width-constraint: 1440px;
+$content-constraint: 1220px;
 
 $body-padding: 4rem;
 $body-padding-small: calc($body-padding / 2);
@@ -419,7 +419,6 @@ button {
 }
 
 .offer {
-    // border: $test;
     position: relative;
     padding: 24rem $body-padding;
 
@@ -544,6 +543,19 @@ button {
                     font-size: max(16px, 2.8rem);
                     line-height: 140%;
                 }
+            }
+        }
+
+    }
+}
+
+.offer-icons {
+
+    .offer-details {
+
+        &-info {
+
+            .offer-block {
 
                 &:nth-of-type(1) {
 
@@ -557,7 +569,6 @@ button {
                 }
             }
         }
-
     }
 }
 
@@ -569,5 +580,86 @@ button {
             padding: 1.6rem;
         }
     }
+
+    .offer-details {
+
+        &-info {
+            height: 56rem;
+            gap: 2.4rem;
+            align-items: stretch;
+
+            @include mq-max('md') {
+                height: unset;
+            }
+    
+            .offer-block {
+                position: relative;
+                background: #D9D9D9;
+                border-radius: 6rem;
+                width: 32%;
+                align-items: flex-start;
+                padding: 4rem;
+                
+                @include mq-max('md') {
+                    margin: auto;
+                    // width: 56%;
+                    width: 72rem;
+                    height: 86rem;
+                    padding: 8rem;
+                }
+                
+                @include mq-max('sm') {
+                    border-radius: 4rem;
+                    width: 32rem;
+                    height: 42rem;
+                    padding: 3.6rem;
+                }
+                
+                h3,
+                p {
+                    text-align: left;
+                }
+                
+                h3 {
+                    font-size: max(32px, 3.6rem);
+                    font-weight: 600;
+                    margin-bottom: 2rem;
+                    
+                    @include mq-max('sm') {
+                        font-size: 5.6rem;
+                        margin-bottom: 1rem;
+                    }
+
+                }
+
+                p {
+                    font-size: max(16px, 2.4rem);
+                    line-height: 100%;
+                }
+
+                
+                img {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    border-radius: 4rem 0 6rem 0;
+                    width: 82%;
+                    
+                    @include mq-max('xxl') {
+                        width: 74%;
+                    }
+
+                    @include mq-max('md') {
+                        width: 80%;
+                    }
+
+                    @include mq-max('sm') {
+                        border-radius: 2rem 0 4rem 0;
+                    }
+                }
+            }
+        }
+    }
+
 }
 
