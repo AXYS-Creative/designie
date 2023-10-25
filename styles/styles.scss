@@ -663,3 +663,77 @@ button {
 
 }
 
+.benefits {
+    display: flex;
+    flex-direction: column;
+    background: black;
+
+    &-head {
+        display: flex;
+        justify-content: space-between;
+        margin: 10rem 8rem 14rem 8rem;
+
+        h2 {
+            font-size: 8rem;
+            font-weight: bold;     
+            background: linear-gradient(50deg, $aquamarine, $dodgerblue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;        
+        }
+
+        a {
+           color: $whitesmoke;         
+        }
+
+        @include mq-max('md') {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+    }
+
+    &-details {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: auto;
+        gap: 4rem;
+        color: $whitesmoke;
+        flex-wrap: wrap;
+        width: 100%;
+
+        .benefits-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 30%;
+            margin: auto;
+            padding-bottom: 16rem;
+
+            @include mq-max('md') {
+                flex-direction: column;
+                width: 80%;
+            }
+
+            img {
+                width: 70px;
+            }
+
+            h3 {
+                font-size: max(30px, 3.2rem);
+                font-weight: 600;
+                padding: 6rem 0;
+                width: 60%;
+                text-align: center;
+            }
+
+            p {
+                font-size: max(20px, 2.8rem);
+                text-align: center;
+                width: 80%;
+            }
+        }
+
+    }
+}   

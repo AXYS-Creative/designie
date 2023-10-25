@@ -49,7 +49,8 @@ section {
 
 img {
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 a,
@@ -114,7 +115,8 @@ button {
   justify-content: space-between;
   align-items: center;
   background: rgba(46, 48, 48, 0.8039215686);
-  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
   width: clamp(480px, 50%, 840px);
   border-radius: 4rem;
   padding: 1.4rem 3.8rem;
@@ -608,4 +610,72 @@ button {
   .offer-cards .offer-details-info .offer-block img {
     border-radius: 2rem 0 4rem 0;
   }
+}
+
+.benefits {
+  display: flex;
+  flex-direction: column;
+  background: black;
+}
+.benefits-head {
+  display: flex;
+  justify-content: space-between;
+  margin: 10rem 8rem 14rem 8rem;
+}
+.benefits-head h2 {
+  font-size: 8rem;
+  font-weight: bold;
+  background: linear-gradient(50deg, #5AF1BB, #5199FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.benefits-head a {
+  color: #F0F1F1;
+}
+@media screen and (max-width: 768px) {
+  .benefits-head {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+.benefits-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+  gap: 4rem;
+  color: #F0F1F1;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.benefits-details .benefits-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+  margin: auto;
+  padding-bottom: 16rem;
+}
+@media screen and (max-width: 768px) {
+  .benefits-details .benefits-card {
+    flex-direction: column;
+    width: 80%;
+  }
+}
+.benefits-details .benefits-card img {
+  width: 70px;
+}
+.benefits-details .benefits-card h3 {
+  font-size: max(30px, 3.2rem);
+  font-weight: 600;
+  padding: 6rem 0;
+  width: 60%;
+  text-align: center;
+}
+.benefits-details .benefits-card p {
+  font-size: max(20px, 2.8rem);
+  text-align: center;
+  width: 80%;
 }/*# sourceMappingURL=styles.css.map */
