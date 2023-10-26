@@ -70,6 +70,10 @@ button {
     cursor: pointer;
 }
 
+ul {
+    list-style: none;
+}
+
 //
 // Site Content
 //
@@ -573,6 +577,11 @@ button {
 }
 
 .offer-cards {
+    padding: 24rem $body-padding 12rem;
+
+    @include mq-max('sm') {
+        padding: 12rem $body-padding 6rem;
+    }
 
     .island {
 
@@ -664,7 +673,6 @@ button {
 }
 
 .benefits {
-    background: white;
 
     &-outline {
         background-color: black;
@@ -672,7 +680,7 @@ button {
         display: flex;
         flex-direction: column;
         border-radius: 2rem 2rem 0 0;
-        width: clamp(0px, calc(100% - $body-padding * 2), $content-constraint);
+        width: clamp(0px, 100%, $content-constraint);
         margin: auto;
 
         @include mq-max('md') {
@@ -684,26 +692,33 @@ button {
             max-width: $content-constraint;
             margin: 12rem auto;
             width: 88%;
-    
+            
             @include mq-max('md') {
                 @include column-center;
                 text-align: center;
+                margin: 8rem auto 0;
             }
 
             h2 {
                 font-size: 8rem;
                 font-weight: bold;     
                 background: linear-gradient(150deg, $aquamarine 38%, $dodgerblue 60%);
+                background-clip: text;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;  
+
+                @include mq-max('md') {
+                    font-size: 10rem;
+                    text-align: center;
+                }
             }
     
-            .benefits-cta{
+            .benefits-cta {
                 color: $whitesmoke; 
                 background-image: linear-gradient(10deg, $aquamarine, $dodgerblue);
                 font-size: max(20px, 3.2rem);
                 border-radius: $button-square-radius;
-                padding: $button-square-padding;
+                padding: calc($button-square-padding * 1.6);
                 color: white;
                 display: flex;
                 align-items: center;
@@ -723,6 +738,10 @@ button {
             color: $whitesmoke;
             flex-wrap: wrap;
             width: 100%;
+
+            @include mq-max('md') {
+                padding-bottom: 8rem;
+            }    
     
             .benefits-card {
                 display: flex;
@@ -732,10 +751,10 @@ button {
                 width: 30%;
                 margin: auto;
                 padding-bottom: 16rem;
-    
+                
                 @include mq-max('md') {
-                    flex-direction: column;
                     width: 80%;
+                    padding-bottom: 4rem;
                 }
     
                 img {
@@ -748,6 +767,10 @@ button {
                     padding: 6rem 0;
                     width: 60%;
                     text-align: center;
+                    
+                    @include mq-max('md') {
+                        padding: 2rem 0;
+                    }
                 }
     
                 p {
@@ -788,17 +811,25 @@ button {
         h2 {
             font-size: 8rem;
             font-weight: bold;
+
+            @include mq-max('lg') {
+                margin-bottom: 4rem;
+            }
         }
         
         .work-logos {
             @include row-between;
-            gap: 8rem;
+            width: 60%;
+
+            @include mq-max('lg') {
+                width: 100%;
+            }
             
             svg {
-                width: 14rem;
+                width: 20%;
                 
-                @include mq-max('sm') {
-                    width: 4rem;
+                @include mq-max('lg') {
+                    width: 16%;
                 }
             }
         }
@@ -810,14 +841,126 @@ button {
         flex-wrap: wrap;
 
         @include mq-max('md') {
-            @include column-center;
-            
+            @include column-center;   
         }
         
         img {
             width: 48%;
+
+            @include mq-max('md') {
+                width: 92%;   
+            }
             
         }
 
+    }
+}
+
+.unlock-access {
+
+    @include mq-max('md') {
+        padding-top: 12rem;
+    }
+
+    &-outline {
+        background: black;
+        border-radius: 2rem;
+        width: clamp(0px, 100%, $content-constraint);
+        margin: auto;
+        padding: 8rem 12rem;
+        
+        @include mq-max('xxl') {
+            padding: 8rem;
+        }
+
+        @include mq-max('md') {
+            border-radius: 10rem;
+            padding: 12rem;
+        }
+    }
+
+    &-head {
+        margin-bottom: 12rem;
+        
+        @include mq-max('xxl') {
+            margin-bottom: 10rem;
+        }
+
+        h2 {
+            color: white;
+            font-size: 6rem;
+            font-weight: 600;
+            background: linear-gradient(120deg, $aquamarine 0%, $dodgerblue 40%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;  
+
+            @include mq-max('md') {
+                font-size: 10rem;
+                text-align: center;
+            }
+            
+            span {
+                font-weight: 600;
+                font-size: 8rem;
+                text-transform: uppercase;
+
+                @include mq-max('md') {
+                    font-size: 10rem;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    &-body {
+        display: flex;
+
+        @include mq-max('md') {
+            flex-direction: column;
+        }
+
+        ul {
+            width: 34%;
+
+            @include mq-max('md') {
+                width: 100%;
+            }
+
+            &:nth-of-type(2) {
+                width: 38%;
+
+                @include mq-max('md') {
+                    width: 100%;
+                }
+            }
+
+            &:nth-of-type(3) {
+                width: 28%;
+
+                @include mq-max('md') {
+                    width: 100%;
+                }
+            }
+
+
+            li {
+                color: white;
+                font-size: 3.6rem;
+                border-bottom: 1px solid white;
+                padding-bottom: 1rem;
+                margin-bottom: 6rem;
+
+                @include mq-max('lg') {
+                    font-size: 2.7rem;
+                }
+
+                @include mq-max('md') {
+                    font-size: 8rem;
+                    text-align: center;
+                    border: none;
+                }
+            }
+        }
     }
 }
