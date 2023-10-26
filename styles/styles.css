@@ -64,6 +64,34 @@ ul {
   list-style: none;
 }
 
+.gradient-btn-square {
+  padding: 2rem 4rem;
+  border-radius: 1rem;
+  background: linear-gradient(-6deg, #5199FF, #5AF1BB);
+  color: white;
+  font-size: max(24px, 3.2rem);
+  font-weight: 600;
+}
+@media screen and (max-width: 768px) {
+  .gradient-btn-square {
+    padding: 3.2rem;
+  }
+}
+
+.gradient-btn-circle {
+  padding: 1.2rem 3.6rem;
+  border-radius: 4rem;
+  background: linear-gradient(90deg, #5199FF, #5AF1BB);
+  color: white;
+  font-size: max(24px, 3.2rem);
+  font-weight: 600;
+}
+@media screen and (max-width: 768px) {
+  .gradient-btn-circle {
+    padding: 1.6rem 4.2rem;
+  }
+}
+
 .site-header {
   display: flex;
   justify-content: space-between;
@@ -835,12 +863,23 @@ ul {
     padding: 12rem;
   }
 }
+@media screen and (max-width: 480px) {
+  .unlock-access-outline {
+    border-radius: 4rem;
+    padding: 4rem 2rem;
+  }
+}
 .unlock-access-head {
   margin-bottom: 12rem;
 }
 @media screen and (max-width: 1440px) {
   .unlock-access-head {
     margin-bottom: 10rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .unlock-access-head {
+    margin-bottom: 4rem;
   }
 }
 .unlock-access-head h2 {
@@ -858,6 +897,11 @@ ul {
     text-align: center;
   }
 }
+@media screen and (max-width: 480px) {
+  .unlock-access-head h2 {
+    font-size: 8rem;
+  }
+}
 .unlock-access-head h2 span {
   font-weight: 600;
   font-size: 8rem;
@@ -867,6 +911,11 @@ ul {
   .unlock-access-head h2 span {
     font-size: 10rem;
     text-align: center;
+  }
+}
+@media screen and (max-width: 480px) {
+  .unlock-access-head h2 span {
+    font-size: 8rem;
   }
 }
 .unlock-access-body {
@@ -919,4 +968,217 @@ ul {
     text-align: center;
     border: none;
   }
+}
+@media screen and (max-width: 480px) {
+  .unlock-access-body ul li {
+    font-size: 6rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.memberships {
+  max-width: 1440px;
+  margin: auto;
+  padding: 0;
+}
+@media screen and (max-width: 1440px) {
+  .memberships {
+    padding: 4rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .memberships {
+    padding: 2rem;
+  }
+}
+.memberships-head {
+  margin-bottom: 4rem;
+  padding-left: 4rem;
+}
+@media screen and (max-width: 768px) {
+  .memberships-head {
+    padding: 8rem 4rem;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 480px) {
+  .memberships-head {
+    padding: 4rem 2rem;
+  }
+}
+.memberships-head h2 {
+  font-size: 8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+@media screen and (max-width: 768px) {
+  .memberships-head h2 {
+    line-height: 120%;
+    margin-bottom: 1rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .memberships-head h2 {
+    font-size: 6.4rem;
+  }
+}
+.memberships-head p {
+  font-size: max(20px, 2.8rem);
+}
+.memberships-body {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+@media screen and (max-width: 768px) {
+  .memberships-body {
+    flex-direction: column;
+  }
+}
+.memberships-body .column {
+  background: black;
+  border-radius: 2rem;
+  width: 33.33%;
+  padding: 4rem 4rem 8rem;
+}
+@media screen and (max-width: 768px) {
+  .memberships-body .column {
+    width: 100%;
+    padding: 8rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .memberships-body .column {
+    padding: 4rem 4rem 8rem;
+  }
+}
+.memberships-body .column > * {
+  color: white;
+}
+.memberships-body .column h3 {
+  font-size: 5.2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+@media screen and (max-width: 768px) {
+  .memberships-body .column h3 {
+    font-size: 8rem;
+  }
+}
+.memberships-body .column p {
+  font-size: max(20px, 2.8rem);
+  margin-bottom: 4rem;
+}
+@media screen and (max-width: 768px) {
+  .memberships-body .column p {
+    line-height: 120%;
+  }
+}
+.memberships-body .column .price {
+  font-size: 5.2rem;
+  font-weight: 600;
+}
+@media screen and (max-width: 768px) {
+  .memberships-body .column .price {
+    font-size: 8rem;
+  }
+}
+.memberships-body .column .gradient-btn-square {
+  display: block;
+  margin-bottom: 8rem;
+  text-align: center;
+}
+.memberships-body .column ul {
+  list-style: disc;
+  list-style-position: inside;
+}
+.memberships-body .column ul li {
+  font-size: max(16px, 2.6rem);
+  padding: 0 0 2rem 2rem;
+}
+@media screen and (max-width: 1200px) {
+  .memberships-body .column ul li {
+    padding: 1.2rem 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .memberships-body .column ul li {
+    padding: 0 0 2rem 2rem;
+  }
+}
+.memberships-body .refer-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.memberships-body .refer-column > div {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media screen and (max-width: 768px) {
+  .memberships-body .refer-column > div {
+    height: unset;
+  }
+}
+.memberships-body .refer-column hr {
+  width: 100%;
+  margin-bottom: 4rem;
+}
+@media screen and (max-width: 768px) {
+  .memberships-body .refer-column hr {
+    margin: 8rem 0 4rem 0;
+  }
+}
+.memberships-body .refer-column h3 {
+  align-self: flex-start;
+}
+.memberships-body .refer-column .gradient-btn-circle {
+  display: block;
+  align-self: center;
+}
+.memberships-footer {
+  border-radius: 2rem;
+  background: rgba(46, 48, 48, 0.8039215686);
+  backdrop-filter: blur(4px);
+  padding: 6rem 12rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+@media screen and (max-width: 768px) {
+  .memberships-footer {
+    padding: 8rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .memberships-footer {
+    padding: 4rem 4rem 8rem;
+  }
+}
+.memberships-footer h3 {
+  color: white;
+  font-size: 6rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+.memberships-footer p {
+  color: white;
+  font-size: max(20px, 2.8rem);
+  margin-bottom: 4rem;
+}
+.memberships-footer .price {
+  font-size: 6rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+@media screen and (max-width: 768px) {
+  .memberships-footer .price {
+    margin-bottom: 4rem;
+  }
+}
+.memberships-footer .gradient-btn-circle {
+  text-transform: uppercase;
 }/*# sourceMappingURL=styles.css.map */
