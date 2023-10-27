@@ -432,7 +432,7 @@ ul {
 }
 .offer .island {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   position: absolute;
   top: 0;
@@ -459,25 +459,6 @@ ul {
 }
 .offer .island * {
   color: white;
-}
-.offer .island img {
-  width: 16rem;
-}
-@media screen and (max-width: 768px) {
-  .offer .island img {
-    width: 12rem;
-  }
-}
-@media screen and (max-width: 480px) {
-  .offer .island img {
-    width: 6rem;
-  }
-}
-.offer .island img:nth-of-type(odd) {
-  align-self: flex-start;
-}
-.offer .island img:nth-of-type(even) {
-  align-self: flex-end;
 }
 .offer .island p {
   font-size: max(16px, 3.6rem);
@@ -552,6 +533,55 @@ ul {
   line-height: 140%;
 }
 
+.offer-icons .island {
+  overflow: hidden;
+}
+.offer-icons .island .marquee {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  padding: 4rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: marquee 40s linear infinite;
+}
+@media screen and (max-width: 768px) {
+  .offer-icons .island .marquee {
+    animation: marquee 24s linear infinite;
+    padding: 2.4rem 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .offer-icons .island .marquee {
+    animation: marquee 16s linear infinite;
+    padding: 1.2rem 0;
+  }
+}
+.offer-icons .island .marquee img {
+  width: 16rem;
+}
+@media screen and (max-width: 768px) {
+  .offer-icons .island .marquee img {
+    width: 24rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .offer-icons .island .marquee img {
+    width: 12rem;
+  }
+}
+.offer-icons .island .marquee img:nth-of-type(odd) {
+  align-self: flex-start;
+}
+.offer-icons .island .marquee img:nth-of-type(even) {
+  align-self: flex-end;
+}
+@keyframes marquee {
+  to {
+    translate: -50% 0;
+  }
+}
 .offer-icons .offer-details-info .offer-block:nth-of-type(1) img {
   translate: -10% 0;
 }

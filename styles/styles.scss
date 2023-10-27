@@ -380,7 +380,7 @@ $test: 2px dashed cornflowerblue;
     }
 
     .island {
-        @include row-between;
+        @include row-center;
         position: absolute;
         top: 0;
         left: 50%;
@@ -404,25 +404,6 @@ $test: 2px dashed cornflowerblue;
 
         * {
             color: white;
-        }
-
-        img {
-            width: 16rem;
-
-            @include mq-max('md') {
-                width: 12rem;
-            }
-
-            @include mq-max('sm') {
-                width: 6rem;
-            }
-
-            &:nth-of-type(odd) {
-                align-self: flex-start;
-            }
-            &:nth-of-type(even) {
-                align-self: flex-end;
-            }
         }
 
         p {
@@ -503,6 +484,56 @@ $test: 2px dashed cornflowerblue;
 }
 
 .offer-icons {
+
+    .island {
+        // border: $test;
+        overflow: hidden;
+
+        .marquee {
+            // border: $test;
+            position: absolute;
+            left: 0;
+            height: 100%;
+            padding: 4rem 0;
+            @include row-between;
+            animation: marquee 40s linear infinite;
+
+            @include mq-max('md') {
+                animation: marquee 24s linear infinite;
+                padding: 2.4rem 0;
+            }
+
+            @include mq-max('md') {
+                animation: marquee 16s linear infinite;
+                padding: 1.2rem 0;
+            }
+
+            img {
+                width: 16rem;
+    
+                @include mq-max('md') {
+                    width: 24rem;
+                }
+    
+                @include mq-max('sm') {
+                    width: 12rem;
+                }
+    
+                &:nth-of-type(odd) {
+                    align-self: flex-start;
+                }
+                &:nth-of-type(even) {
+                    align-self: flex-end;
+                }
+            }
+        }
+
+        @keyframes marquee {
+            to {
+                translate: -50% 0;
+            }
+        }
+    }
 
     .offer-details {
 
