@@ -88,7 +88,8 @@ $test: 2px dashed cornflowerblue;
         backdrop-filter: blur(4px);
         width: clamp(480px, 50%, 840px);
         border-radius: $button-circle-radius;
-        padding: $button-circle-padding;
+        // padding: $button-circle-padding;
+        padding: 0.4rem;
         z-index: 3;
 
         @include mq-max('xxl') {
@@ -99,6 +100,14 @@ $test: 2px dashed cornflowerblue;
         &-links {
             font-size: 2.4rem;
             color: white;
+            padding: 0.8rem 1.6rem;
+            border-radius: 4rem;
+            transition: background 0.4s ease;
+
+            &:hover,
+            &.active {
+                background: black;
+            }
 
             @include mq-max('md') {
                 font-size: 8rem;
@@ -388,8 +397,8 @@ $test: 2px dashed cornflowerblue;
         background: black;
         border-radius: 2rem;
         width: clamp(0px, calc(100% - $body-padding * 2), $content-constraint);
-        height: 24rem;
-        padding: 5.2rem 8rem;
+        height: 22rem;
+        padding: 4.8rem 8rem;
 
         @include mq-max('md') {
             translate: -50% -24%;
@@ -494,7 +503,7 @@ $test: 2px dashed cornflowerblue;
             position: absolute;
             left: 0;
             height: 100%;
-            padding: 4rem 0;
+            padding: 2.4rem 0;
             @include row-between;
             animation: marquee 40s linear infinite;
 
@@ -508,8 +517,14 @@ $test: 2px dashed cornflowerblue;
                 padding: 1.2rem 0;
             }
 
+            @keyframes marquee {
+                to {
+                    translate: -50% 0;
+                }
+            }
+
             img {
-                width: 16rem;
+                width: 20rem;
     
                 @include mq-max('md') {
                     width: 24rem;
@@ -525,12 +540,6 @@ $test: 2px dashed cornflowerblue;
                 &:nth-of-type(even) {
                     align-self: flex-end;
                 }
-            }
-        }
-
-        @keyframes marquee {
-            to {
-                translate: -50% 0;
             }
         }
     }
@@ -803,13 +812,18 @@ $test: 2px dashed cornflowerblue;
 
             @include mq-max('lg') {
                 width: 100%;
+                justify-content: center;
             }
             
             svg {
-                width: 20%;
+                width: 25%;
+                
+                path {
+                    fill: black;
+                }
                 
                 @include mq-max('lg') {
-                    width: 16%;
+                    width: 32rem;
                 }
             }
         }
