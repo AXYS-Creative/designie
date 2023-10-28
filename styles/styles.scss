@@ -703,7 +703,7 @@ $test: 2px dashed cornflowerblue;
             }
     
             .benefits-cta {
-                color: $whitesmoke; 
+                color: white; 
                 background-image: linear-gradient(10deg, $aquamarine, $dodgerblue);
                 font-size: max(20px, 3.2rem);
                 border-radius: $button-square-radius;
@@ -833,7 +833,7 @@ $test: 2px dashed cornflowerblue;
         display: flex;
         gap: 3rem;
         flex-wrap: wrap;
-
+        
         @include mq-max('md') {
             @include column-center;   
         }
@@ -1199,6 +1199,103 @@ $test: 2px dashed cornflowerblue;
         .gradient-btn-circle {
             // See _globals.scss for utility class
             text-transform: uppercase;
+        }
+    }
+}
+
+.faq {
+   max-width: $content-constraint;
+   margin: auto;
+   
+   h2 {
+       font-size: 8rem;
+       font-weight: bold;
+       margin-top: 6rem;
+    }
+
+    .faq-content {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 8rem;
+        
+        .question {
+            position: relative;
+            display: flex;
+            align-items: center;
+
+            h3 {
+                font-size: 3.6rem;
+                padding-top: 6rem;
+                cursor: pointer;
+            }
+
+            // img {
+            //     position: absolute;
+            //     top: 52%;
+            //     left: 57%;
+            //     cursor: pointer;
+            //     width: 4.8rem;
+            // }
+        }
+
+        .answer {
+            font-size: 3rem;
+            display: none;
+            padding-top: 2rem;
+
+            &.active {
+                display: block;
+            }
+        }
+    }
+}
+
+footer {
+    background-color: black;
+
+    .footer-details {
+        max-width: $content-constraint;
+        margin: auto;
+
+        footer-head {
+        @include row-between;
+        padding: 10rem 0; 
+    
+            h2 {
+                font-size: 8rem;
+                font-weight: bold; 
+                color: white;
+            }
+    
+            .footer-cta {
+                color: white; 
+                background-image: linear-gradient(10deg, $aquamarine, $dodgerblue);
+                font-size: max(20px, 3.2rem);
+                border-radius: $button-square-radius;
+                padding: 2.4rem 8rem;
+                color: white;
+                display: flex;
+                align-items: center;
+        
+                @include mq-max('md') {
+                    margin: 6rem 0 10rem;
+                }   
+            }
+        }
+    
+        footer-logos {
+            @include row-between;
+            gap: 12rem;
+            margin-bottom: 8rem;
+    
+            img {
+                width: 8%;
+            }
+        }
+    
+        img {
+            width: 12%;
+            margin: 6rem 0;
         }
     }
 }

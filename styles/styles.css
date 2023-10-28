@@ -50,7 +50,8 @@ section {
 
 img {
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 a,
@@ -147,7 +148,8 @@ ul {
   justify-content: space-between;
   align-items: center;
   background: rgba(46, 48, 48, 0.8039215686);
-  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
   width: clamp(480px, 50%, 840px);
   border-radius: 4rem;
   padding: 0.4rem;
@@ -733,7 +735,7 @@ ul {
   }
 }
 .benefits-outline .benefits-head .benefits-cta {
-  color: #F0F1F1;
+  color: white;
   background-image: linear-gradient(10deg, #5AF1BB, #5199FF);
   font-size: max(20px, 3.2rem);
   border-radius: 1rem;
@@ -1182,7 +1184,8 @@ ul {
 .memberships-footer {
   border-radius: 2rem;
   background: rgba(46, 48, 48, 0.8039215686);
-  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
   padding: 6rem 12rem;
   display: flex;
   justify-content: space-between;
@@ -1222,4 +1225,85 @@ ul {
 }
 .memberships-footer .gradient-btn-circle {
   text-transform: uppercase;
+}
+
+.faq {
+  max-width: 1440px;
+  margin: auto;
+}
+.faq h2 {
+  font-size: 8rem;
+  font-weight: bold;
+  margin-top: 6rem;
+}
+.faq .faq-content {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8rem;
+}
+.faq .faq-content .question {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.faq .faq-content .question h3 {
+  font-size: 3.6rem;
+  padding-top: 6rem;
+  cursor: pointer;
+}
+.faq .faq-content .answer {
+  font-size: 3rem;
+  display: none;
+  padding-top: 2rem;
+}
+.faq .faq-content .answer.active {
+  display: block;
+}
+
+footer {
+  background-color: black;
+}
+footer .footer-details {
+  max-width: 1440px;
+  margin: auto;
+}
+footer .footer-details footer-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10rem 0;
+}
+footer .footer-details footer-head h2 {
+  font-size: 8rem;
+  font-weight: bold;
+  color: white;
+}
+footer .footer-details footer-head .footer-cta {
+  color: white;
+  background-image: linear-gradient(10deg, #5AF1BB, #5199FF);
+  font-size: max(20px, 3.2rem);
+  border-radius: 1rem;
+  padding: 2.4rem 8rem;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+@media screen and (max-width: 768px) {
+  footer .footer-details footer-head .footer-cta {
+    margin: 6rem 0 10rem;
+  }
+}
+footer .footer-details footer-logos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12rem;
+  margin-bottom: 8rem;
+}
+footer .footer-details footer-logos img {
+  width: 8%;
+}
+footer .footer-details img {
+  width: 12%;
+  margin: 6rem 0;
 }/*# sourceMappingURL=styles.css.map */
