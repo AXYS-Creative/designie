@@ -526,7 +526,7 @@ ul {
 @media screen and (max-width: 768px) {
   .offer-details-info {
     flex-direction: column;
-    gap: 4rem;
+    gap: 2rem;
   }
 }
 .offer-details-info .offer-block {
@@ -591,6 +591,9 @@ ul {
 .offer-icons .island .marquee img:nth-of-type(even) {
   align-self: flex-end;
 }
+.offer-icons .offer-details-info .offer-block img {
+  width: 26rem;
+}
 .offer-icons .offer-details-info .offer-block:nth-of-type(1) img {
   translate: -10% 0;
 }
@@ -614,7 +617,7 @@ ul {
   }
 }
 .offer-cards .offer-details-info {
-  height: 56rem;
+  height: 48rem;
   gap: 2.4rem;
   align-items: stretch;
 }
@@ -671,7 +674,7 @@ ul {
   bottom: 0;
   right: 0;
   border-radius: 4rem 0 6rem 0;
-  width: 82%;
+  width: 64%;
 }
 @media screen and (max-width: 1440px) {
   .offer-cards .offer-details-info .offer-block img {
@@ -708,7 +711,7 @@ ul {
   justify-content: space-between;
   align-items: center;
   max-width: 1440px;
-  margin: 12rem auto;
+  margin: 6rem auto;
   width: 88%;
 }
 @media screen and (max-width: 768px) {
@@ -754,8 +757,7 @@ ul {
   align-items: center;
   justify-content: space-between;
   margin: auto;
-  gap: 4rem;
-  color: #F0F1F1;
+  color: white;
   flex-wrap: wrap;
   width: 100%;
 }
@@ -771,7 +773,7 @@ ul {
   justify-content: center;
   width: 30%;
   margin: auto;
-  padding-bottom: 16rem;
+  padding-bottom: 10rem;
 }
 @media screen and (max-width: 768px) {
   .benefits-outline .benefits-details .benefits-card {
@@ -785,7 +787,7 @@ ul {
 .benefits-outline .benefits-details .benefits-card h3 {
   font-size: max(30px, 3.2rem);
   font-weight: 600;
-  padding: 6rem 0;
+  padding: 2rem 0;
   width: 60%;
   text-align: center;
 }
@@ -995,7 +997,7 @@ ul {
 }
 .unlock-access-body ul li {
   color: white;
-  font-size: 3.6rem;
+  font-size: 3.2rem;
   border-bottom: 1px solid white;
   padding-bottom: 1rem;
   margin-bottom: 6rem;
@@ -1181,51 +1183,6 @@ ul {
   display: block;
   align-self: center;
 }
-.memberships-footer {
-  border-radius: 2rem;
-  background: rgba(46, 48, 48, 0.8039215686);
-  -webkit-backdrop-filter: blur(4px);
-          backdrop-filter: blur(4px);
-  padding: 6rem 12rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-@media screen and (max-width: 768px) {
-  .memberships-footer {
-    padding: 8rem;
-  }
-}
-@media screen and (max-width: 480px) {
-  .memberships-footer {
-    padding: 4rem 4rem 8rem;
-  }
-}
-.memberships-footer h3 {
-  color: white;
-  font-size: 6rem;
-  font-weight: bold;
-  margin-bottom: 2rem;
-}
-.memberships-footer p {
-  color: white;
-  font-size: max(20px, 2.8rem);
-  margin-bottom: 4rem;
-}
-.memberships-footer .price {
-  font-size: 6rem;
-  font-weight: bold;
-  margin-bottom: 2rem;
-}
-@media screen and (max-width: 768px) {
-  .memberships-footer .price {
-    margin-bottom: 4rem;
-  }
-}
-.memberships-footer .gradient-btn-circle {
-  text-transform: uppercase;
-}
 
 .faq {
   max-width: 1440px;
@@ -1266,17 +1223,39 @@ footer {
 footer .footer-details {
   max-width: 1440px;
   margin: auto;
+  padding: 4rem;
+}
+@media screen and (max-width: 1024px) {
+  footer .footer-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 footer .footer-details footer-head {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10rem 0;
+  padding: 8rem 0;
+  gap: 4rem;
+}
+@media screen and (max-width: 1024px) {
+  footer .footer-details footer-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 0;
+  }
 }
 footer .footer-details footer-head h2 {
   font-size: 8rem;
   font-weight: bold;
   color: white;
+}
+@media screen and (max-width: 1024px) {
+  footer .footer-details footer-head h2 {
+    text-align: center;
+  }
 }
 footer .footer-details footer-head .footer-cta {
   color: white;
@@ -1297,13 +1276,33 @@ footer .footer-details footer-logos {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12rem;
   margin-bottom: 8rem;
+}
+@media screen and (max-width: 1024px) {
+  footer .footer-details footer-logos {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 320px) {
+  footer .footer-details footer-logos {
+    width: 20%;
+  }
 }
 footer .footer-details footer-logos img {
   width: 8%;
 }
+@media screen and (max-width: 1024px) {
+  footer .footer-details footer-logos img {
+    width: 28%;
+  }
+}
 footer .footer-details img {
   width: 12%;
   margin: 6rem 0;
+}
+@media screen and (max-width: 1024px) {
+  footer .footer-details img {
+    width: 34%;
+    margin: 4rem 0;
+  }
 }/*# sourceMappingURL=styles.css.map */
