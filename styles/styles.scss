@@ -84,12 +84,13 @@ $test: 2px dashed cornflowerblue;
         // Position:fixing ONLY the nav
 
         @include row-between;
-        background: #2e3030cd;
-        backdrop-filter: blur(4px);
+        background: #58595B;
+        // background: #2e3030cd;
+        // backdrop-filter: blur(4px);
         width: clamp(480px, 50%, 840px);
         border-radius: $button-circle-radius;
         // padding: $button-circle-padding;
-        padding: 0.4rem;
+        padding: 0.6rem;
         z-index: 3;
 
         @include mq-max('xxl') {
@@ -664,6 +665,7 @@ $test: 2px dashed cornflowerblue;
 }
 
 .benefits {
+    scroll-margin-top: 8rem;
 
     &-outline {
         background-color: black;
@@ -675,7 +677,7 @@ $test: 2px dashed cornflowerblue;
         margin: auto;
 
         @include mq-max('md') {
-            border-radius: 2rem;
+            border-radius: 0 0 10rem 10rem;
         }
     
         .benefits-head {
@@ -852,6 +854,7 @@ $test: 2px dashed cornflowerblue;
 }
 
 .unlock-access {
+    scroll-margin-top: 8rem;
 
     @include mq-max('md') {
         padding-top: 12rem;
@@ -987,6 +990,7 @@ $test: 2px dashed cornflowerblue;
     max-width: $content-constraint;
     margin: auto;
     padding: 0;
+    scroll-margin-top: 128px;
 
     @include mq-max('xxl') {
         padding: $body-padding;
@@ -1221,19 +1225,34 @@ $test: 2px dashed cornflowerblue;
        font-size: 8rem;
        font-weight: bold;
        margin-top: 6rem;
+
+       @include mq-max('md') {
+        font-size: 20vw;
+        margin-bottom: 4rem;
+       }
     }
 
     .faq-content {
         display: flex;
         flex-direction: column;
+
+        @include mq-max('md') {
+            padding-bottom: 12rem;
+           }
         
         .question-block {
+            // border: $test;
             position: relative;
+            padding: 2rem 0;
+            text-align: left;
 
             h3 {
                 font-size: 3.6rem;
-                padding-top: 4rem;
                 cursor: pointer;
+
+                @include mq-max('md') {
+                    font-size: 5rem;
+                }
             }
 
             // img {
@@ -1250,6 +1269,10 @@ $test: 2px dashed cornflowerblue;
             display: none;
             padding-top: 2rem;
 
+            @include mq-max('md') {
+                font-size: 4.2rem;
+            }
+
             &.active {
                 display: block;
             }
@@ -1259,19 +1282,18 @@ $test: 2px dashed cornflowerblue;
 
 footer {
     background-color: black;
+    padding: 8rem $body-padding;
 
     .footer-details {
         max-width: $content-constraint;
         margin: auto;
-        padding: $body-padding;
 
         @include mq-max('lg') {
             @include column-center;
         }
 
-        footer-head {
+        .footer-head {
             @include row-between;
-            padding: 8rem 0; 
             gap: 4rem;
             
             @include mq-max('lg') {
@@ -1300,17 +1322,23 @@ footer {
                 align-items: center;
         
                 @include mq-max('md') {
-                    margin: 6rem 0 10rem;
+                    margin: 4rem 0;
                 }   
             }
         }
     
-        footer-logos {
+        .footer-logos {
             @include row-between;
-            margin-bottom: 8rem;
-    
+            margin: 8rem 0;
+            
             @include mq-max('lg') {
+                width: 86%;
                 flex-wrap: wrap;
+                gap: 6vw;
+            }
+
+            @include mq-max('md') {
+                margin: 8rem 0 16rem;
             }
 
             @include mq-max('xs') {
@@ -1318,23 +1346,48 @@ footer {
             }
 
             img {
-                width: 8%;
+                width: 10%;
 
                 @include mq-max('lg') {
-                    width: 28%;
+                    width: 25%;
                 }
             }
         }
     
-        img {
-            width: 12%;
-            margin: 6rem 0;
+        .footer-footer {
+            @include row-between;
 
             @include mq-max('lg') {
-                width: 34%;
-                margin: 4rem 0;
+                flex-direction: column;
             }
 
+            img {
+                width: 12%;
+    
+                @include mq-max('lg') {
+                    width: 20rem;
+                    margin: 0 0 8rem;
+                }
+    
+            }
+
+            a {
+                font-family: 'Mukta', sans-serif;
+                color: white;
+                font-size: max(20px, 2rem);
+                @include row-center;
+                gap: 4px;
+
+                &:hover {
+                    border-bottom: 1px solid white;
+                }
+
+                svg {
+                    width: max(20px, 2rem);
+                    height: max(20px, 2rem);
+                    translate: 0 -2px;
+                }
+            }
         }
     }
 }

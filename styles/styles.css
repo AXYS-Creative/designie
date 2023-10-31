@@ -146,11 +146,10 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(46, 48, 48, 0.8039215686);
-  backdrop-filter: blur(4px);
+  background: #58595B;
   width: clamp(480px, 50%, 840px);
   border-radius: 4rem;
-  padding: 0.4rem;
+  padding: 0.6rem;
   z-index: 3;
 }
 @media screen and (max-width: 1440px) {
@@ -690,6 +689,9 @@ ul {
   }
 }
 
+.benefits {
+  scroll-margin-top: 8rem;
+}
 .benefits-outline {
   background-color: black;
   position: relative;
@@ -701,7 +703,7 @@ ul {
 }
 @media screen and (max-width: 768px) {
   .benefits-outline {
-    border-radius: 2rem;
+    border-radius: 0 0 10rem 10rem;
   }
 }
 .benefits-outline .benefits-head {
@@ -883,6 +885,9 @@ ul {
   }
 }
 
+.unlock-access {
+  scroll-margin-top: 8rem;
+}
 @media screen and (max-width: 768px) {
   .unlock-access {
     padding-top: 12rem;
@@ -1023,6 +1028,7 @@ ul {
   max-width: 1220px;
   margin: auto;
   padding: 0;
+  scroll-margin-top: 128px;
 }
 @media screen and (max-width: 1440px) {
   .memberships {
@@ -1201,22 +1207,44 @@ ul {
   font-weight: bold;
   margin-top: 6rem;
 }
+@media screen and (max-width: 768px) {
+  .faq h2 {
+    font-size: 20vw;
+    margin-bottom: 4rem;
+  }
+}
 .faq .faq-content {
   display: flex;
   flex-direction: column;
 }
+@media screen and (max-width: 768px) {
+  .faq .faq-content {
+    padding-bottom: 12rem;
+  }
+}
 .faq .faq-content .question-block {
   position: relative;
+  padding: 2rem 0;
+  text-align: left;
 }
 .faq .faq-content .question-block h3 {
   font-size: 3.6rem;
-  padding-top: 4rem;
   cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .faq .faq-content .question-block h3 {
+    font-size: 5rem;
+  }
 }
 .faq .faq-content .answer {
   font-size: 3rem;
   display: none;
   padding-top: 2rem;
+}
+@media screen and (max-width: 768px) {
+  .faq .faq-content .answer {
+    font-size: 4.2rem;
+  }
 }
 .faq .faq-content .answer.active {
   display: block;
@@ -1224,11 +1252,11 @@ ul {
 
 footer {
   background-color: black;
+  padding: 8rem 4rem;
 }
 footer .footer-details {
   max-width: 1220px;
   margin: auto;
-  padding: 4rem;
 }
 @media screen and (max-width: 1024px) {
   footer .footer-details {
@@ -1237,32 +1265,31 @@ footer .footer-details {
     align-items: center;
   }
 }
-footer .footer-details footer-head {
+footer .footer-details .footer-head {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8rem 0;
   gap: 4rem;
 }
 @media screen and (max-width: 1024px) {
-  footer .footer-details footer-head {
+  footer .footer-details .footer-head {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-bottom: 0;
   }
 }
-footer .footer-details footer-head h2 {
+footer .footer-details .footer-head h2 {
   font-size: 8rem;
   font-weight: bold;
   color: white;
 }
 @media screen and (max-width: 1024px) {
-  footer .footer-details footer-head h2 {
+  footer .footer-details .footer-head h2 {
     text-align: center;
   }
 }
-footer .footer-details footer-head .footer-cta {
+footer .footer-details .footer-head .footer-cta {
   color: white;
   background-image: linear-gradient(10deg, #5AF1BB, #5199FF);
   font-size: max(20px, 3.2rem);
@@ -1273,41 +1300,74 @@ footer .footer-details footer-head .footer-cta {
   align-items: center;
 }
 @media screen and (max-width: 768px) {
-  footer .footer-details footer-head .footer-cta {
-    margin: 6rem 0 10rem;
+  footer .footer-details .footer-head .footer-cta {
+    margin: 4rem 0;
   }
 }
-footer .footer-details footer-logos {
+footer .footer-details .footer-logos {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 8rem;
+  margin: 8rem 0;
 }
 @media screen and (max-width: 1024px) {
-  footer .footer-details footer-logos {
+  footer .footer-details .footer-logos {
+    width: 86%;
     flex-wrap: wrap;
+    gap: 6vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  footer .footer-details .footer-logos {
+    margin: 8rem 0 16rem;
   }
 }
 @media screen and (max-width: 320px) {
-  footer .footer-details footer-logos {
+  footer .footer-details .footer-logos {
     width: 20%;
   }
 }
-footer .footer-details footer-logos img {
-  width: 8%;
+footer .footer-details .footer-logos img {
+  width: 10%;
 }
 @media screen and (max-width: 1024px) {
-  footer .footer-details footer-logos img {
-    width: 28%;
+  footer .footer-details .footer-logos img {
+    width: 25%;
   }
 }
-footer .footer-details img {
+footer .footer-details .footer-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media screen and (max-width: 1024px) {
+  footer .footer-details .footer-footer {
+    flex-direction: column;
+  }
+}
+footer .footer-details .footer-footer img {
   width: 12%;
-  margin: 6rem 0;
 }
 @media screen and (max-width: 1024px) {
-  footer .footer-details img {
-    width: 34%;
-    margin: 4rem 0;
+  footer .footer-details .footer-footer img {
+    width: 20rem;
+    margin: 0 0 8rem;
   }
+}
+footer .footer-details .footer-footer a {
+  font-family: "Mukta", sans-serif;
+  color: white;
+  font-size: max(20px, 2rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+footer .footer-details .footer-footer a:hover {
+  border-bottom: 1px solid white;
+}
+footer .footer-details .footer-footer a svg {
+  width: max(20px, 2rem);
+  height: max(20px, 2rem);
+  translate: 0 -2px;
 }/*# sourceMappingURL=styles.css.map */
