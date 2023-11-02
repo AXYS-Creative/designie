@@ -32,6 +32,14 @@ section {
     }
 }
 
+#btn {
+    transition: 0.5s ease-in-out;
+
+    &:hover {
+        background: $dodgerblue;
+    }
+}
+
 img {
     width: 100%;
     object-fit: cover;
