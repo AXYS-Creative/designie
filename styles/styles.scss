@@ -13,14 +13,14 @@ $button-square-radius: 1rem;
 $button-circle-padding: 1.4rem 3.8rem;
 $button-circle-radius: 4rem;
 
-@import './fonts',
-'./mixins',
-'./globals';
-
-
 $cubic-ease: cubic-bezier(.19,1.1,.75,1.27);
 
 $test: 2px dashed cornflowerblue;
+
+
+@import './fonts',
+'./mixins',
+'./globals';
 
 
 //
@@ -157,6 +157,12 @@ $test: 2px dashed cornflowerblue;
         border-radius: $button-circle-radius;
         background: black;
         color: white;
+
+        transition: background 0.3s ease;
+
+        &:hover {
+            background: $dodgerblue;
+        }
 
         @include mq-max('md') {
             display: none;
@@ -374,6 +380,11 @@ $test: 2px dashed cornflowerblue;
         background: black;
         color: white;
         z-index: 1;
+        transition: background 0.3s ease;
+
+        &:hover {
+            background: $dodgerblue;
+        }
 
         @include mq-max('md') {
             margin: 6rem 0 10rem;
@@ -722,6 +733,10 @@ $test: 2px dashed cornflowerblue;
                 color: white;
                 display: flex;
                 align-items: center;
+
+                &::after {
+                    content: "View Plans";
+                }
         
                 @include mq-max('md') {
                     margin: 6rem 0 10rem;
@@ -799,13 +814,13 @@ $test: 2px dashed cornflowerblue;
     }
 } 
 
-.recent-work {
-    max-width: $content-constraint;
-    margin: auto;
+.work {
 
-    .work-head {
+    &-head {
         @include row-between;
         padding: 10rem 0;
+        max-width: $content-constraint;
+        margin: 0 auto;
 
         @include mq-max('lg') {
             @include column-center;
@@ -843,10 +858,12 @@ $test: 2px dashed cornflowerblue;
         }
     }
 
-    .work-sites {
+    &-sites {
         display: flex;
         gap: 3rem;
         flex-wrap: wrap;
+        max-width: $content-constraint;
+        margin: 0 auto;
         
         @include mq-max('md') {
             @include column-center;   
@@ -864,7 +881,7 @@ $test: 2px dashed cornflowerblue;
     }
 }
 
-.unlock-access {
+.services {
     scroll-margin-top: 8rem;
 
     @include mq-max('md') {
@@ -997,7 +1014,7 @@ $test: 2px dashed cornflowerblue;
     }
 }
 
-.memberships {
+.pricing {
     max-width: $content-constraint;
     margin: auto;
     padding: 0;
@@ -1122,6 +1139,10 @@ $test: 2px dashed cornflowerblue;
                 display: block;
                 margin-bottom: 8rem;
                 text-align: center;
+
+                &::after {
+                    content: "Get Started";
+                }
             }
 
             ul {
@@ -1183,6 +1204,20 @@ $test: 2px dashed cornflowerblue;
             .gradient-btn-circle {
                 display: block;
                 align-self: center;
+            }
+
+            .join-now {
+
+                &::after {
+                    content: "Join Now";
+                }
+            }
+
+            .book-call {
+
+                &::after {
+                    content: "Book a Call";
+                }
             }
         }
     }
@@ -1328,6 +1363,10 @@ footer {
                 color: white;
                 display: flex;
                 align-items: center;
+
+                &::after {
+                    content: "Get Started";
+                }
         
                 @include mq-max('md') {
                     margin: 4rem 0;
@@ -1380,25 +1419,44 @@ footer {
             }
 
             a {
+                // border: $test;
+                position: relative;
                 color: white;
                 font-size: max(20px, 2rem);
                 font-weight: 100;
                 @include row-center;
+                justify-content: flex-end;
                 gap: 4px;
 
-                span {
-                    font-family: 'Plus Jakarta Sans', sans-serif;                    font-weight: 700;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: -4px;
+                    left: 0;
+                    width: 0;
+                    height: 2px;
+                    background: white;
+                    transition: 0.3s ease;
                 }
 
                 &:hover {
-                    border-bottom: 1px solid white;
+                    
+                    &::after {
+                        width: 100%;
+                    }
+
                 }
 
-                svg {
-                    width: max(20px, 2rem);
-                    height: max(20px, 2rem);
-                    translate: 0 -2px;
+                img {
+                    flex-shrink: 0;
+                    width: max(64px, 6.4rem);
                 }
+
+                // svg {
+                //     width: max(20px, 2rem);
+                //     height: max(20px, 2rem);
+                //     translate: 0 -2px;
+                // }
             }
         }
     }

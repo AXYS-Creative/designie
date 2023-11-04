@@ -75,7 +75,7 @@ const sectionLinks = {
   ".nav-link-work": "#work-section",
   ".nav-link-services": "#services-section",
   ".nav-link-pricing": "#pricing-section",
-  ".nav-link-faqs": "#faqs-section",
+  ".nav-link-faq": "#faq-section",
 };
 
 for (const linkClass in sectionLinks) {

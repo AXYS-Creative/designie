@@ -9,10 +9,6 @@
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="icon" href="./public/favicon.png">
     <script src="./javascript/index.js" type="module"></script>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
     
@@ -35,7 +31,7 @@
             <a class="header-nav-links nav-link-work" href="#work-section">Work</a>
             <a class="header-nav-links nav-link-services" href="#services-section">Services</a>
             <a class="header-nav-links nav-link-pricing" href="#pricing-section">Pricing</a>
-            <a class="header-nav-links nav-link-faqs" href="#faqs-section">FAQs</a>
+            <a class="header-nav-links nav-link-faq" href="#faq-section">FAQs</a>
             <!-- <a href="" class="login-mobile">Login</a> -->
         </nav>
         <a id="btn" class="login-btn" href="">Login</a>
@@ -167,7 +163,7 @@
         <div class="benefits-outline">
             <div class="benefits-head">
                 <h2>Membership <br> Benefits</h2>
-                <a id="btn" class="benefits-cta" href="">View Plans</a>
+                <a class="benefits-cta gradient-btn gradient-btn-square" href="">View Plans</a>
             </div>
             <div class="benefits-details">
                 <div class="design-board benefits-card">
@@ -208,7 +204,7 @@
         </div> 
     </section>
 
-    <section class="recent-work" id="work-section">
+    <section class="work" id="work-section">
         <div class="work-head">
             <h2>Recent Work</h2>
             <div class="work-logos"> 
@@ -255,21 +251,21 @@
             </div>
         </div>
         <div class="work-sites">
-            <img src="./assets/briizy-img.webp" alt="" loading="lazy">
-            <img src="./assets/bak'd-img.webp" alt="" loading="lazy">
-            <img src="./assets/sportio-img.png" alt="" loading="lazy">
-            <img src="./assets/enzy-img.webp" alt="" loading="lazy">
+            <img src="./assets/briizy-img.webp" alt="">
+            <img src="./assets/bak'd-img.webp" alt="">
+            <img src="./assets/sportio-img.png" alt="">
+            <img src="./assets/enzy-img.webp" alt="">
         </div>
     </section>
 
-    <section class="unlock-access" id="services-section">
+    <section class="services" id="services-section">
     
-        <div class="unlock-access-outline">
-            <div class="unlock-access-head">
+        <div class="services-outline">
+            <div class="services-head">
                 <h2>Unlock access to<br><span>so much more</span></h2>
             </div>
 
-            <div class="unlock-access-body">
+            <div class="services-body">
                 <ul class="column">
                     <li>Websites</li>
                     <li>Mobile Apps</li>
@@ -307,20 +303,20 @@
         </div>
     </section>
 
-    <section class="memberships" id="pricing-section">
+    <section class="pricing" id="pricing-section">
 
-        <div class="memberships-head">
+        <div class="pricing-head">
             <h2>Memberships</h2>
             <p>Choose the plan that is right for you.</p>
         </div>
 
-        <div class="memberships-body">
+        <div class="pricing-body">
 
             <div class="column">
                 <h3>Standard</h3>
                 <p>One request at a time.<br>Pause or cancel at anytime.</p>
                 <p class="price">$1,995/m</p>
-                <a id="btn" class="gradient-btn-square" href="">Get Started</a>
+                <a class="gradient-btn-square gradient-btn" href="">Get Started</a>
                 <p class="list-title">Included</p>
                 <ul>
                     <li>One request at a time</li>
@@ -337,7 +333,7 @@
                 <h3>Pro</h3>
                 <p>Double the requests.<br>Pause or cancel at anytime.</p>
                 <p class="price">$2,995/m</p>
-                <a id="btn" class="gradient-btn-square" href="">Get Started</a>
+                <a class="gradient-btn-square gradient-btn" href="">Get Started</a>
                 <p class="list-title">Included</p>
                 <ul>
                     <li>Two request at a time</li>
@@ -355,7 +351,7 @@
                 <div class="block-1">
                     <h3>Refer + Earn</h3>
                     <p>Earn 5% monthly recurring commisions for each referral</p>
-                    <a id="btn" class="gradient-btn-circle" href="">Join Now</a>
+                    <a class="join-now gradient-btn-circle gradient-btn" href="">Join Now</a>
                 </div>
 
                 <hr>
@@ -363,13 +359,13 @@
                 <div class="block-1">
                     <h3>Book a Call</h3>
                     <p>Learn more about how Designie works and how it can help you.</p>
-                    <a id="btn" class="gradient-btn-circle" href="">Book a Call</a>
+                    <a class="book-call gradient-btn-circle gradient-btn" href="">Book a Call</a>
                 </div>
 
             </div>
         </div>
 
-        <!-- <div class="memberships-footer">
+        <!-- <div class="pricing-footer">
 
             <div class="block-details">
                 <h3>Custom Website Development</h3>
@@ -385,18 +381,16 @@
 
     </section>
 
-    <section class="faq" id="faqs-section">
+    <section class="faq" id="faq-section">
         <h2>FAQs</h2>
-        <div class="faq-content">
-
-        </div>
+        <div class="faq-content"></div>
     </section>
 
     <footer>
         <div class="footer-details">
             <div class="footer-head">
                 <h2>Do design different <br>with us.</h2>
-                <a id="btn" class="footer-cta" href="">Get Started</a>
+                <a class="footer-cta gradient-btn gradient-btn-square" href="">Get Started</a>
             </div>
             <div class="footer-logos">
                 <img src="./assets/graphics/logo-enzy.svg" alt="">
@@ -408,11 +402,7 @@
             </div>
             <div class="footer-footer">
                 <img src="./assets/graphics/logo-designie.svg" alt="">
-                <a href="">Developed by <span>AXYS</span> <svg width="306" height="255" viewBox="0 0 306 255" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M144.047 5.3636C148.022 -1.56392 157.985 -1.5639 161.96 5.36362L225.391 115.915C227.229 119.117 227.229 123.058 225.391 126.26L161.96 236.812C157.985 243.739 148.022 243.739 144.047 236.812L80.6163 126.26C78.779 123.058 78.779 119.117 80.6164 115.915L144.047 5.3636Z" fill="#FAFAFA"/>
-                    <path d="M227.806 136.64C231.784 129.728 241.728 129.728 245.706 136.64L304.44 238.705C308.417 245.617 303.445 254.257 295.49 254.257H178.022C170.067 254.257 165.095 245.617 169.072 238.705L227.806 136.64Z" fill="#FAFAFA"/>
-                    <path d="M60.3017 136.64C64.2794 129.728 74.2238 129.728 78.2015 136.64L136.935 238.705C140.913 245.617 135.941 254.257 127.985 254.257H10.5178C2.56237 254.257 -2.40979 245.617 1.56794 238.705L60.3017 136.64Z" fill="#FAFAFA"/>
-                    </svg>
+                <a href="">Developed by <img src="./assets/graphics/axys-with-emblem.svg" alt="">
                 </a>
             </div>
         </div>
