@@ -1424,8 +1424,8 @@ footer {
                 color: white;
                 font-size: max(20px, 2rem);
                 font-weight: 100;
-                @include row-center;
-                justify-content: flex-end;
+                height: 16px;
+                display: flex;
                 gap: 4px;
 
                 &::after {
@@ -1447,16 +1447,17 @@ footer {
 
                 }
 
-                img {
-                    flex-shrink: 0;
-                    width: max(64px, 6.4rem);
-                }
+                figure {
+                    width: 64px;
 
-                // svg {
-                //     width: max(20px, 2rem);
-                //     height: max(20px, 2rem);
-                //     translate: 0 -2px;
-                // }
+                    @include mq-max('md') {
+                        translate: 0 3px;
+                    }
+
+                    img {
+                        width: 100%;
+                    }
+                }
             }
         }
     }

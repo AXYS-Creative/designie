@@ -1441,10 +1441,8 @@ footer .footer-details .footer-footer a {
   color: white;
   font-size: max(20px, 2rem);
   font-weight: 100;
+  height: 16px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  justify-content: flex-end;
   gap: 4px;
 }
 footer .footer-details .footer-footer a::after {
@@ -1460,7 +1458,14 @@ footer .footer-details .footer-footer a::after {
 footer .footer-details .footer-footer a:hover::after {
   width: 100%;
 }
-footer .footer-details .footer-footer a img {
-  flex-shrink: 0;
-  width: max(64px, 6.4rem);
+footer .footer-details .footer-footer a figure {
+  width: 64px;
+}
+@media screen and (max-width: 768px) {
+  footer .footer-details .footer-footer a figure {
+    translate: 0 3px;
+  }
+}
+footer .footer-details .footer-footer a figure img {
+  width: 100%;
 }/*# sourceMappingURL=styles.css.map */
