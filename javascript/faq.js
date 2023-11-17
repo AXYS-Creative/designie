@@ -47,7 +47,7 @@ const faqData = [
     answer: `Totally fine. You can pause your subscription when your design is finished and resume once you need another design. Don't let the remainder of your subscription go to waste!`,
   },
   {
-    question: `Are there any refunds if I don't like the service?`,
+    question: `Do you offer refunds if I don't like the service?`,
     answer: `Due to the high quality and time consuming nature of the work we do not offer refunds.`,
   },
 ];
