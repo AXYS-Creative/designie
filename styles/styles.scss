@@ -11,7 +11,7 @@ $body-padding-small: calc($body-padding / 2);
 $button-square-padding: 2rem;
 $button-square-radius: 1rem;
 $button-circle-padding: 1.4rem 3.8rem;
-$button-circle-radius: 4rem;
+$button-circle-radius: 8rem;
 
 $cubic-ease: cubic-bezier(.19,1.1,.75,1.27);
 
@@ -1522,8 +1522,9 @@ footer {
     
             }
 
-            a {
-                // border: $test;
+            .developed-by-axys {
+                padding: 12px;
+                @include row-between;
                 position: relative;
                 color: white;
                 font-size: max(20px, 2rem);
@@ -1551,16 +1552,9 @@ footer {
 
                 }
 
-                figure {
+                svg {
                     width: 64px;
-
-                    @include mq-max('md') {
-                        translate: 0 3px;
-                    }
-
-                    img {
-                        width: 100%;
-                    }
+                    @include row-between;
                 }
             }
         }
