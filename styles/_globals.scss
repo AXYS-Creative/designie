@@ -51,6 +51,9 @@ ul {
 
 .gradient-btn {
     position: relative;
+    color: white;
+    font-size: max(24px, 3.2rem);
+    font-weight: 600;
 
     &::before,
     &::after {
@@ -73,13 +76,23 @@ ul {
     &::after {
         // Change the "content" per each button in styles.css below
         @include row-center;
+        opacity: 0;
+        transition: 0.3s ease 0.1s;
     }
 
     &:hover {
         
-        &::before {
+        &::before,
+        &::after {
             opacity: 1;
         }
+        &::after {
+            transition: 0s;
+        }
+    }
+
+    @include mq-max('sm') {
+        font-size: 32px;
     }
 }
 
@@ -87,9 +100,6 @@ ul {
     padding: 2rem 4rem;
     border-radius: 1rem;
     background: linear-gradient(-6deg, $dodgerblue, $aquamarine);
-    color: white;
-    font-size: max(24px, 3.2rem);
-    font-weight: 600;
     
     @include mq-max('md') {
         padding: 3.2rem;
@@ -101,15 +111,16 @@ ul {
 }
 
 .gradient-btn-circle {
-    padding: 1.2rem 3.6rem;
-    border-radius: 4rem;
+    padding: 1.6rem 3.6rem;
+    border-radius: 8rem;
     background: linear-gradient(90deg, $dodgerblue, $aquamarine);
-    color: white;
-    font-size: max(24px, 3.2rem);
-    font-weight: 600;
 
     @include mq-max('md') {
-        padding: 1.6rem 4.2rem;
+        padding: 2.6rem 8rem;
+    }
+
+    @include mq-max('sm') {
+        padding: 1.8rem 5.6rem;
     }
 
     &::before {

@@ -425,25 +425,6 @@ $test: 2px dashed cornflowerblue;
         * {
             color: white;
         }
-
-        p {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            translate: -50% -50%;
-            font-size: max(16px, 3.6rem);
-            width: 94rem;
-            margin: auto;
-            text-align: center;
-            
-            @include mq-max('md') {
-                width: 100%;
-            }
-            
-            @include mq-max('sm') {
-                font-size: 16px;
-            }
-        }
     }
 
     &-details {
@@ -587,13 +568,37 @@ $test: 2px dashed cornflowerblue;
     padding: 24rem $body-padding 12rem;
 
     @include mq-max('sm') {
-        padding: 12rem $body-padding 6rem;
+        padding: 16rem $body-padding 6rem;
     }
 
     .island {
 
+        @include mq-max('md') {
+            height: 26rem;
+        }
+
         @include mq-max('sm') {
-            padding: 1.6rem;
+            height: 16rem;
+        }
+
+        p {
+            line-height: 1.1;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+            font-size: max(16px, 3.6rem);
+            width: 92rem;
+            margin: auto;
+            text-align: center;
+            
+            @include mq-max('md') {
+                width: 88%;
+            }
+            
+            @include mq-max('sm') {
+                font-size: 16px;
+            }
         }
     }
 
@@ -606,6 +611,10 @@ $test: 2px dashed cornflowerblue;
 
             @include mq-max('md') {
                 height: unset;
+            }
+
+            @include mq-max('sm') {
+                gap: 4rem;
             }
     
             .offer-block {
@@ -625,8 +634,8 @@ $test: 2px dashed cornflowerblue;
                 
                 @include mq-max('sm') {
                     border-radius: 4rem;
-                    width: 32rem;
-                    height: 42rem;
+                    width: 100%;
+                    height: 46rem;
                     padding: 3.6rem;
                 }
                 
@@ -683,7 +692,6 @@ $test: 2px dashed cornflowerblue;
             }
         }
     }
-
 }
 
 .benefits {
@@ -759,7 +767,11 @@ $test: 2px dashed cornflowerblue;
 
             @include mq-max('md') {
                 padding-bottom: 8rem;
-            }    
+            }
+
+            @include mq-max('sm') {
+                padding-bottom: 4rem;
+            }
     
             .benefits-card {
                 position: relative;
@@ -785,8 +797,16 @@ $test: 2px dashed cornflowerblue;
                 }
     
                 img {
-                    width: 40%;
+                    width: 16rem;
                     top: 8%;
+                    
+                    @include mq-max('md') {
+                        width: 32rem;
+                    }
+
+                    @include mq-max('sm') {
+                        width: 12rem;
+                    }
                 }
     
                 h3 {
@@ -796,11 +816,24 @@ $test: 2px dashed cornflowerblue;
                     padding: 2rem 0;
                     width: 60%;
                     text-align: center;
+
+                    @include mq-max('xxl') {
+                        width: 100%;
+                    }
+
+                    @include mq-max('lg') {
+                        width: 24rem;
+                    }
                     
                     @include mq-max('md') {
-                        padding: 2rem 0;
+                        font-size: 8rem;
                         top: 44%;
                         width: 100%;
+                    }
+
+                    @include mq-max('sm') {
+                        font-size: 6rem;
+                        top: 32%;
                     }
                 }
     
@@ -809,6 +842,31 @@ $test: 2px dashed cornflowerblue;
                     font-size: max(18px, 2.4rem);
                     text-align: center;
                     width: 80%;
+
+                    @include mq-max('xxl') {
+                        top: 50%;
+                    }
+
+                    @include mq-max('lg') {
+                        top: 58%;
+                    }
+
+                    @include mq-max('md') {
+                        top: 74%;
+                        width: 100%;
+                    }
+
+                    @include mq-max('sm') {
+                        top: 60%;
+                    }
+                }
+            }
+
+            .fast-delivery,
+            .quality {
+
+                img {
+                    scale: 0.9;
                 }
             }
 
@@ -1099,6 +1157,7 @@ $test: 2px dashed cornflowerblue;
 
         @include mq-max('md') {
             flex-direction: column;
+            gap: 2rem;
         }
 
         .column {
@@ -1133,7 +1192,8 @@ $test: 2px dashed cornflowerblue;
             }
             
             p {
-                font-size: max(20px, 2.8rem);
+                font-size: max(20px, 2.4rem);
+                line-height: 1.1;
                 margin: 0 0 4rem;
 
                 @include mq-max('md') {
@@ -1163,6 +1223,10 @@ $test: 2px dashed cornflowerblue;
 
                 &::after {
                     content: "Get Started";
+                }
+
+                @include mq-max('md') {
+                    max-width: 90rem;
                 }
             }
 
@@ -1199,27 +1263,45 @@ $test: 2px dashed cornflowerblue;
         .refer-column {
             @include column-center;
 
-            > div {
+            & > div {
                 height: 50%;
                 @include column-center;
 
                 @include mq-max('md') {
                     height: unset;
+                    width: 100%;
+                    padding-bottom: 24rem;
+                }
+                
+                @include mq-max('sm') {
+                    padding-bottom: 10rem;
                 }
             }
 
             hr {
+                border: none;
                 width: 100%;
+                height: 1px;
+                background: white;
                 margin-bottom: 4rem;
                 
                 @include mq-max('md') {
-                    
                     margin: 8rem 0 4rem 0;
                 }
             }
 
-            h3 {
+            h3, p {
                 align-self: flex-start;
+
+                @include mq-max('md') {
+                    margin-bottom: 4rem;
+                }
+            }
+
+            p {
+                @include mq-max('md') {
+                    margin-bottom: 8rem;
+                }
             }
 
             .gradient-btn-circle {
@@ -1348,6 +1430,10 @@ footer {
     background-color: black;
     padding: 8rem $body-padding;
 
+    @include mq-max('md') {
+        padding: 8rem $body-padding-small;
+    }
+
     .footer-details {
         max-width: $content-constraint;
         margin: auto;
@@ -1366,7 +1452,8 @@ footer {
             }
 
             h2 {
-                font-size: 8rem;
+                font-size: 7.2rem;
+                line-height: 1.1;
                 font-weight: bold; 
                 color: white;
 
@@ -1376,14 +1463,10 @@ footer {
             }
     
             .footer-cta {
-                color: white; 
                 background-image: linear-gradient(10deg, $aquamarine, $dodgerblue);
-                font-size: max(20px, 3.2rem);
                 border-radius: $button-square-radius;
-                padding: 2.4rem 8rem;
                 color: white;
-                display: flex;
-                align-items: center;
+                padding: 2.4rem 6rem;
 
                 &::after {
                     content: "Get Started";
@@ -1397,7 +1480,7 @@ footer {
     
         .footer-logos {
             @include row-between;
-            margin: 8rem 0;
+            margin: 12rem 0;
             
             @include mq-max('lg') {
                 width: 86%;
@@ -1409,15 +1492,15 @@ footer {
                 margin: 8rem 0 16rem;
             }
 
-            @include mq-max('xs') {
-                width: 20%;
-            }
-
             img {
                 width: 10%;
 
                 @include mq-max('lg') {
                     width: 25%;
+                }
+
+                @include mq-max('lg') {
+                    scale: 1.2;
                 }
             }
         }
